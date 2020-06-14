@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,20 +14,28 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 
 </head>
+
 <body>
     <header>
-        <div class="container title-container text-center">
-            <div class="col-12">
-                <img src="/assets/images/ac-newhorizons-logo.png" alt="" class="img-fluid">
-                <h1>The Memory Game</h1>
-                <p class="lead">Welcome to Animal Crossing(TM) - The Memory Game! Please enter your name below and we can get started!</p>
+        <div class="container-fluid title-container text-center">
+            <div class="row">
+                <div class="col-12">
+                    <img src="/assets/images/ac-newhorizons-logo.png" alt="" class="img-fluid">
+                    <h1>The Memory Game</h1>
+                    <p class="lead">Welcome to Animal Crossing(TM) - The Memory Game! Please enter your name below and
+                        we can get started!</p>
+                </div>
             </div>
         </div>
     </header>
-    <div class="container main-container text-center">
-        <div class="col-12" id="mainContent">
-            <input type="text" name="playerName" id="playerName" placeholder="Your username eg. tim_nook123" class="player-name"><br>
-            <i class="fas fa-chevron-circle-right" id="nameForward"></i>
+    <div class="container-fluid main-container" id="mainContent">
+        <div class="row">
+            <div class="col-12 text-center">
+                <input type="text" name="playerName" id="playerName" placeholder="Your username eg. tim_nook123"
+                    class="player-name"><br>
+                <i class="fas fa-chevron-circle-right" id="nameForward"></i>
+            </div>
+        </div>
     </div>
     <!-- * Main application JS file -->
     <script src="/assets/js/app.js"></script>
