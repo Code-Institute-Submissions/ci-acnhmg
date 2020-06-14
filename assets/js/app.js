@@ -1,16 +1,30 @@
-// Save username to local storage
-// Select input field value and chevron icon
-    const playerNameValue = document.getElementById('playerName');
+// Get element selectors 
+    const playerName = document.getElementById('playerName');
     const ctaButton = document.getElementById('nameForward');
+    const mainContent = document.getElementById('mainContent');
+
+//Event listeners
     ctaButton.addEventListener('click', savePlayerName);
 
-function savePlayerName() {
-    localStorage.setItem("playerName", playerNameValue.value);
-    removeMainContent();
+// Clear main content div function
+    function clearMainContent() {
+        mainContent.innerHTML = '';
+    }
+
+function addRules() {
+    const rules = document.createElement('div')
+    rules.setAttribute('class', 'rules')
+    rules.innerHTML = ''
+    mainContent.appendChild(rules)
 }
 
-function removeMainContent() {
-    document.querySelector('.main-container').remove();
-}
+// Save player name to local storage function
+    function savePlayerName() {
+        localStorage.setItem("playerName", playerName.value);
+        clearMainContent();
+        addRules();
+    }
+
+
 
 
