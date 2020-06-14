@@ -11,8 +11,7 @@
     <script src="https://kit.fontawesome.com/2f59828723.js" crossorigin="anonymous"></script>
     <!-- * Custom CSS generated via Live Sass compiler -->
     <link rel="stylesheet" href="/assets/css/style.css">
-    <!-- * Main application JS file -->
-    <script src="/assets/js/app.js"></script>
+
 </head>
 <body>
     <header>
@@ -24,11 +23,12 @@
             </div>
         </div>
     </header>
-    <div class="container input text-center">
-        <div class="col-12">
+    <div class="container main-container text-center">
+        <div class="col-12" id="mainContent">
             <input type="text" name="playerName" id="playerName" placeholder="Your username eg. tim_nook123" class="player-name"><br>
-            <i class="fas fa-chevron-circle-right" onclick="savePlayerName()"></i>
+            <i class="fas fa-chevron-circle-right" id="nameForward"></i>
     </div>
-    
+    <!-- * Main application JS file -->
+    <script src="/assets/js/app.js"></script>
 </body>
 </html>
