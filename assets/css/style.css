@@ -1,7 +1,9 @@
+/* Add wood background */
 body {
     background-image: url("/assets/images/retina_wood.png");
   }
   
+/* Title and lead text styles */
 .title-container img {
     margin-top: 10%;
   }
@@ -13,3 +15,29 @@ body {
 .title-container p {
     padding-top: 2%;
   }
+
+/* Input styling for index page */
+input.player-name {
+    width: 50%;
+    height: 5vh;
+    text-align: center;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffffff93;
+  }
+
+/* Custom media queries for mobile devices */
+@media (max-width: 768px) {
+    .title-container img {
+      width: 80%;
+    }
+    .title-container h1 {
+      font-size: 2rem;
+    }
+    .title-container p {
+      padding-top: 10%;
+    }
+    input.player-name {
+        width: 80%;
+        height: 5vh;
+    }
