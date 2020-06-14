@@ -1,6 +1,7 @@
 /* Add wood background */
 body {
     background-image: url("/assets/images/retina_wood.png");
+    color: #532901;
   }
   
 /* Title and lead text styles */
@@ -22,9 +23,15 @@ input.player-name {
     height: 5vh;
     text-align: center;
     border-radius: 20px;
-    border: none;
+    border: solid 2px #532901;
     background-color: #ffffff93;
   }
+
+i.fas {
+    font-size: 2.5rem;
+    padding-top: 5%;
+    color: #532901;
+}
 
 /* Custom media queries for mobile devices */
 @media (max-width: 768px) {
