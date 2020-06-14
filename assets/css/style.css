@@ -1,0 +1,15 @@
+body {
+    background-image: url("/assets/images/retina_wood.png");
+  }
+  
+.title-container img {
+    margin-top: 10%;
+  }
+  
+.title-container h1 {
+    padding-top: 2%;
+  }
+  
+.title-container p {
+    padding-top: 2%;
+  }
