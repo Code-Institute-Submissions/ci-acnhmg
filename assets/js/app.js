@@ -18,7 +18,16 @@ function rulesPage() {
     const rules = document.createElement('div')
     rules.setAttribute('class', 'rules')
     mainContent.appendChild(rules)
-    rules.innerHTML = ``
+    rules.innerHTML = `
+    <div class="row">
+        <div class="col-12 col-lg-6 text-center tom-nook">
+            <img src="/assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+        </div>
+        <div class="col-12 col-lg-6 text-center rules-display">
+            <p class="rules-text" id="rulesText">Text goes here</p>
+        </div>
+    </div>
+    `
 }
 // Save player name to local storage function
     function savePlayerName() {
