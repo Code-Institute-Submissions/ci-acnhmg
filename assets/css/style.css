@@ -1,55 +1,89 @@
+/* ! GENERAL STYLING RULES */
 /* Add wood background */
 body {
-    background-image: url("/assets/images/retina_wood.png");
-    color: #532901;
-  }
-  
+  background-image: url("/assets/images/retina_wood.png");
+  color: #532901;
+}
+
+/* ! LANDING PAGE STYLING */
 /* Title and lead text styles */
 .title-container img {
-    margin-top: 2%;
-    width: 10%;
-  }
-  
+  margin-top: 2%;
+  width: 10%;
+}
+
 .title-container h1 {
-    padding-top: 2%;
-    font-size: 2rem;
-  }
-  
+  padding-top: 2%;
+  font-size: 2rem;
+}
+
 .title-container p {
-    padding-top: 1%;
-    padding-bottom: 1%;
-  }
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
 
 /* Input styling for index page */
 input.player-name {
-    width: 30%;
-    height: 5vh;
-    text-align: center;
-    border-radius: 20px;
-    border: solid 2px #532901;
-    background-color: #ffffff93;
-  }
+  width: 30%;
+  height: 5vh;
+  text-align: center;
+  border-radius: 20px;
+  border: solid 2px #532901;
+  background-color: #ffffff93;
+}
 
 i.fas {
-    font-size: 4rem;
-    padding-top: 5%;
-    color: #532901;
+  font-size: 4rem;
+  padding-top: 5%;
+  color: #532901;
+}
+
+/* ! RULES PAGE STYLING */
+/* Tom Nook character image styles */
+.tom-nook {
+  padding-top: 5%;
+}
+
+/* Rules text box styles */
+.rules-display {
+  margin-top: 5%;
+}
+
+.rules-section {
+  background-color: #d18e5070;
+  border-radius: 10px;
+}
+
+.rules-section p {
+  padding: 5% 0 5% 0;
+  margin-top: 20%;
 }
 
 /* Custom media queries for mobile devices */
 @media (max-width: 768px) {
-    .title-container img {
-      width: 30%;
-    }
-    .title-container p {
-      font-size: 1rem;
-      padding-top: 10%;
-      padding-bottom: 10%
-    }
-    input.player-name {
-        width: 80%;
-        height: 5vh;
-    }
-    i.fas {
-      padding-top: 10%;
-    }
+  .title-container img {
+    width: 30%;
+  }
+
+  .title-container p {
+    font-size: 1rem;
+    padding-top: 10%;
+    padding-bottom: 10%
+  }
+
+  input.player-name {
+    width: 80%;
+    height: 5vh;
+  }
+
+  i.fas {
+    padding-top: 10%;
+  }
+
+  .tom-nook img {
+    width: 50%;
+  }
+  .rules-display {
+    margin-top: 10%;
+  }
+}
