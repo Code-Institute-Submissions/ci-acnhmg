@@ -45,6 +45,12 @@ i.fas,
   padding-top: 5%;
 }
 
+span.playerName {
+  font-weight: bolder;
+  color: rgb(1, 99, 1);
+  font-size: 1.5rem;
+}
+
 /* Rules text box styles */
 .rules-display {
   margin-top: 5%;
@@ -56,26 +62,12 @@ i.fas,
 }
 
 .rules-section p {
-  padding: 5% 0 5% 0;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
   margin-top: 20%;
 }
 
 /* Glowing animation for chevron forward icon */
-
-.next-rule-glow {
-  -webkit-animation: glow 2s ease-in infinite alternate;
-  -moz-animation: glow 2s ease-in infinite alternate;
-  animation: glow 1.5s ease-in infinite alternate;
-}
-
-@-webkit-keyframes glow {
-  from {
-    color: #532901;
-  }
-  to {
-    color: #cf6501;
-  }
-}
 
 .small-print {
 font-size: 0.8rem;
@@ -108,6 +100,7 @@ padding-top: 10px;;
   }
   
  .rules-section p {
-   margin-top: 5%
+   margin: 5%
+
  }
 }
