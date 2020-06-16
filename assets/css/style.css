@@ -32,7 +32,8 @@ input.player-name {
   background-color: #ffffff93;
 }
 
-i.fas {
+i.fas,
+.next-rule {
   font-size: 4rem;
   padding-top: 5%;
   color: #532901;
@@ -59,7 +60,29 @@ i.fas {
   margin-top: 20%;
 }
 
-/* Custom media queries for mobile devices */
+/* Glowing animation for chevron forward icon */
+
+.next-rule-glow {
+  -webkit-animation: glow 2s ease-in infinite alternate;
+  -moz-animation: glow 2s ease-in infinite alternate;
+  animation: glow 1.5s ease-in infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    color: #532901;
+  }
+  to {
+    color: #cf6501;
+  }
+}
+
+.small-print {
+font-size: 0.8rem;
+padding-top: 10px;;
+}
+
+/* ! Custom media queries for mobile devices */
 @media (max-width: 768px) {
   .title-container img {
     width: 30%;
@@ -76,14 +99,15 @@ i.fas {
     height: 5vh;
   }
 
-  i.fas {
-    padding-top: 10%;
+  .next-rule {
+    padding-top: 5%;
   }
 
   .tom-nook img {
-    width: 50%;
+    width: 30%;
   }
-  .rules-display {
-    margin-top: 10%;
-  }
+  
+ .rules-section p {
+   margin-top: 5%
+ }
 }
