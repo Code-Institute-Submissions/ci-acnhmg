@@ -42,7 +42,7 @@ function rulesPage() {
         </div>
         <div class="col-12 col-lg-4 text-center rules-display">
         <div class="rules-section">
-            <p id="rulesText">Hello ${localStorage.getItem('playerName')}...</p>
+            <p id="rulesText">Hello <span class="playerName">${localStorage.getItem('playerName')}</span>...</p>
         </div>
         <i class="fas fa-chevron-circle-right next-rule-glow" id="nextRule"></i>
         <p class="small-print">Click/tap on button to proceed</p>
@@ -53,17 +53,16 @@ function rulesPage() {
     const nextRuleButton = document.getElementById('nextRule');
     // Rules sequence functions
     nextRuleButton.addEventListener('click', function () {
-        rulesText.innerText = "I shall now explain the rules of the game to you, yes yes...";
-        nextRuleButton.classList.toggle('next-rule-glow');
+        rulesText.innerText = "I shall now explain the rules of the game to you, yes, yes...";
         nextRuleButton.addEventListener('click', function () {
-            rulesText.innerText = "It is very simple, find all card pairs before the timer runs out, yes yes...";
-            nextRuleButton.classList.toggle('next-rule-glow');
+            rulesText.innerText = "It is very simple, find all card pairs before the timer runs out, yes, yes...";
             nextRuleButton.addEventListener('click', function () {
                 rulesText.innerText = "If you succeed, you'll be brought to the next level";
-                nextRuleButton.classList.toggle('next-rule-glow');
                 nextRuleButton.addEventListener('click', function () {
-                    rulesText.innerText = "And if you're not, you'll have to start from the start";
-                    nextRuleButton.classList.toggle('next-rule-glow');
+                    rulesText.innerText = "And if you're not, you'll have to start from the start, that's right, yes, yes...";
+                    nextRuleButton.addEventListener('click', function() {
+                        rulesText.innerText = "Okay now, best of luck and go make your island proud!";
+                    })
                 })
             })
         })
