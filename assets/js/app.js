@@ -50,8 +50,7 @@ function rulesPage() {
     </div>
     `
     // Assing nextRuleButton to the chevron icon
-    const nextRuleButton = document.getElementById('nextRule');
-    // Rules sequence functions
+    nextRuleButton = document.getElementById('nextRule');
     nextRuleButton.addEventListener('click', function () {
         rulesText.innerText = "I shall now explain the rules of the game to you, yes, yes...";
         nextRuleButton.addEventListener('click', function () {
@@ -62,9 +61,14 @@ function rulesPage() {
                     rulesText.innerText = "And if you're not, you'll have to start from the start, that's right, yes, yes...";
                     nextRuleButton.addEventListener('click', function() {
                         rulesText.innerText = "Okay now, best of luck and go make your island proud!";
+                        nextRuleButton.addEventListener('click', gamePage);
                     })
                 })
             })
         })
     });
+}
+
+function gamePage() {
+    clearMainContent();
 }
