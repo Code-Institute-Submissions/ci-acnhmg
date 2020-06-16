@@ -4,14 +4,13 @@ const nameButton = document.getElementById('nameForward');
 const mainContent = document.getElementById('mainContent');
 const welcomeText = document.querySelector('.welcome-text');
 
-//Event listeners
+//Event listener for save player name
 nameButton.addEventListener('click', savePlayerName);
 
 // Clear main content div function
 function clearMainContent() {
     mainContent.innerHTML = '';
 }
-
 
 // Save player name to local storage function
 function savePlayerName() {
@@ -59,7 +58,7 @@ function rulesPage() {
                 rulesText.innerText = "If you succeed, you'll be brought to the next level";
                 nextRuleButton.addEventListener('click', function () {
                     rulesText.innerText = "And if you're not, you'll have to start from the start, that's right, yes, yes...";
-                    nextRuleButton.addEventListener('click', function() {
+                    nextRuleButton.addEventListener('click', function () {
                         rulesText.innerText = "Okay now, best of luck and go make your island proud!";
                         nextRuleButton.addEventListener('click', gamePage);
                     })
@@ -69,6 +68,83 @@ function rulesPage() {
     });
 }
 
+// gamePage function generates all elements for the rules page 
 function gamePage() {
     clearMainContent();
-}
+    const fishCards = [{
+            name: 'betta',
+            img: '/assets/images/fish/betta.jpg'
+        },
+        {
+            name: 'catfish',
+            img: '/assets/images/fish/catfish.jpg'
+        },
+        {
+            name: 'clownfish',
+            img: '/assets/images/fish/clownfish.jpg'
+        },
+        {
+            name: 'oarfish',
+            img: '/assets/images/fish/oarfish.jpg'
+        },
+        {
+            name: 'seabass'
+            img: '/assets/images/fish/seabass.jpg'
+        },
+        {
+            name: 'seahorse'
+            img: '/assets/images/fish/seahorse.jpg'
+        }
+    ];
+    const insectsCards = [{
+            name: 'agrias',
+            img: '/assets/images/insects/agrias.jpg'
+        },
+        {
+            name: 'emperor-butterfly',
+            img: '/assets/images/insects/emperor-butterfly.jpg'
+        },
+        {
+            name: 'great-purple-emperor',
+            img: '/assets/images/insects/great-purple-emperor.png'
+        },
+        {
+            name: 'madagascar-sunset-moth',
+            img: '/assets/images/insects/madagascar-sunset-moth.png'
+        },
+        {
+            name: 'orchid-mantis'
+            img: '/assets/images/insects/orchid-mantis.jpg'
+        },
+        {
+            name: 'queen-alexandra-birdwing'
+            img: '/assets/images/insects/queen-alexandra-birdwing.jpg'
+        }
+    ];
+        const villagersCards = [
+            {
+                name: 'coach',
+                img: '/assets/images/villagers/coach.png'
+            },
+            {
+                name: 'eugene',
+                img: '/assets/images/villagers/eugene.png'
+            },
+            {
+                name: 'marina',
+                img: '/assets/images/villagers/marina.png'
+            },
+            {
+                name: 'norma',
+                img: '/assets/images/villagers/norma.png'
+            },
+            {
+                name: 'piper'
+                img: '/assets/images/villagers/piper.png'
+            },
+            {
+                name: 'renee'
+                img: '/assets/images/villagers/renee.png'
+            }
+        ];
+    }
