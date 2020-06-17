@@ -88,11 +88,11 @@ function gamePage() {
             img: '/assets/images/fish/oarfish.jpg'
         },
         {
-            name: 'seabass'
+            name: 'seabass',
             img: '/assets/images/fish/seabass.jpg'
         },
         {
-            name: 'seahorse'
+            name: 'seahorse',
             img: '/assets/images/fish/seahorse.jpg'
         }
     ];
@@ -113,38 +113,37 @@ function gamePage() {
             img: '/assets/images/insects/madagascar-sunset-moth.png'
         },
         {
-            name: 'orchid-mantis'
+            name: 'orchid-mantis',
             img: '/assets/images/insects/orchid-mantis.jpg'
         },
         {
-            name: 'queen-alexandra-birdwing'
+            name: 'queen-alexandra-birdwing',
             img: '/assets/images/insects/queen-alexandra-birdwing.jpg'
         }
     ];
-        const villagersCards = [
-            {
-                name: 'coach',
-                img: '/assets/images/villagers/coach.png'
-            },
-            {
-                name: 'eugene',
-                img: '/assets/images/villagers/eugene.png'
-            },
-            {
-                name: 'marina',
-                img: '/assets/images/villagers/marina.png'
-            },
-            {
-                name: 'norma',
-                img: '/assets/images/villagers/norma.png'
-            },
-            {
-                name: 'piper'
-                img: '/assets/images/villagers/piper.png'
-            },
-            {
-                name: 'renee'
-                img: '/assets/images/villagers/renee.png'
-            }
-        ];
-    }
+    const villagersCards = [{
+            name: 'coach',
+            img: '/assets/images/villagers/coach.png'
+        },
+        {
+            name: 'eugene',
+            img: '/assets/images/villagers/eugene.png'
+        },
+        {
+            name: 'marina',
+            img: '/assets/images/villagers/marina.png'
+        },
+        {
+            name: 'norma',
+            img: '/assets/images/villagers/norma.png'
+        },
+        {
+            name: 'piper',
+            img: '/assets/images/villagers/piper.png'
+        },
+        {
+            name: 'renee',
+            img: '/assets/images/villagers/renee.png'
+        }
+    ];
+}
