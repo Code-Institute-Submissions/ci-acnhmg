@@ -4,6 +4,85 @@ const nameButton = document.getElementById('nameForward');
 const mainContent = document.getElementById('mainContent');
 const welcomeText = document.querySelector('.welcome-text');
 
+// Array collection of all villagers (level 1 cards)
+const villagersArray = [{
+        name: 'coach',
+        img: '/assets/images/villagers/coach.png'
+    },
+    {
+        name: 'eugene',
+        img: '/assets/images/villagers/eugene.png'
+    },
+    {
+        name: 'marina',
+        img: '/assets/images/villagers/marina.png'
+    },
+    {
+        name: 'norma',
+        img: '/assets/images/villagers/norma.png'
+    },
+    {
+        name: 'piper',
+        img: '/assets/images/villagers/piper.png'
+    },
+    {
+        name: 'renee',
+        img: '/assets/images/villagers/renee.png'
+    }
+];
+    // Array collection of all fish (level 2 cards)
+    const fishCards = [{
+        name: 'betta',
+        img: '/assets/images/fish/betta.jpg'
+    },
+    {
+        name: 'catfish',
+        img: '/assets/images/fish/catfish.jpg'
+    },
+    {
+        name: 'clownfish',
+        img: '/assets/images/fish/clownfish.jpg'
+    },
+    {
+        name: 'oarfish',
+        img: '/assets/images/fish/oarfish.jpg'
+    },
+    {
+        name: 'seabass',
+        img: '/assets/images/fish/seabass.jpg'
+    },
+    {
+        name: 'seahorse',
+        img: '/assets/images/fish/seahorse.jpg'
+    }
+];
+    // Array collection of all insects (level 3 cards)
+    const insectsCards = [{
+        name: 'agrias',
+        img: '/assets/images/insects/agrias.jpg'
+    },
+    {
+        name: 'emperor-butterfly',
+        img: '/assets/images/insects/emperor-butterfly.jpg'
+    },
+    {
+        name: 'great-purple-emperor',
+        img: '/assets/images/insects/great-purple-emperor.png'
+    },
+    {
+        name: 'madagascar-sunset-moth',
+        img: '/assets/images/insects/madagascar-sunset-moth.png'
+    },
+    {
+        name: 'orchid-mantis',
+        img: '/assets/images/insects/orchid-mantis.jpg'
+    },
+    {
+        name: 'queen-alexandra-birdwing',
+        img: '/assets/images/insects/queen-alexandra-birdwing.jpg'
+    }
+];
+
 //Event listener for save player name
 nameButton.addEventListener('click', savePlayerName);
 
@@ -71,84 +150,6 @@ function rulesPage() {
 // gamePage function generates all elements for the rules page 
 function gamePage() {
     clearMainContent();
-    // Array collection of all fish (level 2 cards)
-    const fishCards = [{
-            name: 'betta',
-            img: '/assets/images/fish/betta.jpg'
-        },
-        {
-            name: 'catfish',
-            img: '/assets/images/fish/catfish.jpg'
-        },
-        {
-            name: 'clownfish',
-            img: '/assets/images/fish/clownfish.jpg'
-        },
-        {
-            name: 'oarfish',
-            img: '/assets/images/fish/oarfish.jpg'
-        },
-        {
-            name: 'seabass',
-            img: '/assets/images/fish/seabass.jpg'
-        },
-        {
-            name: 'seahorse',
-            img: '/assets/images/fish/seahorse.jpg'
-        }
-    ];
-    // Array collection of all insects (level 3 cards)
-    const insectsCards = [{
-            name: 'agrias',
-            img: '/assets/images/insects/agrias.jpg'
-        },
-        {
-            name: 'emperor-butterfly',
-            img: '/assets/images/insects/emperor-butterfly.jpg'
-        },
-        {
-            name: 'great-purple-emperor',
-            img: '/assets/images/insects/great-purple-emperor.png'
-        },
-        {
-            name: 'madagascar-sunset-moth',
-            img: '/assets/images/insects/madagascar-sunset-moth.png'
-        },
-        {
-            name: 'orchid-mantis',
-            img: '/assets/images/insects/orchid-mantis.jpg'
-        },
-        {
-            name: 'queen-alexandra-birdwing',
-            img: '/assets/images/insects/queen-alexandra-birdwing.jpg'
-        }
-    ];
-    // Array collection of all villagers (level 1 cards)
-    const villagersCards = [{
-            name: 'coach',
-            img: '/assets/images/villagers/coach.png'
-        },
-        {
-            name: 'eugene',
-            img: '/assets/images/villagers/eugene.png'
-        },
-        {
-            name: 'marina',
-            img: '/assets/images/villagers/marina.png'
-        },
-        {
-            name: 'norma',
-            img: '/assets/images/villagers/norma.png'
-        },
-        {
-            name: 'piper',
-            img: '/assets/images/villagers/piper.png'
-        },
-        {
-            name: 'renee',
-            img: '/assets/images/villagers/renee.png'
-        }
-    ];
     // Create the top information container to display the timer and the click count
     const infoContainer = document.createElement('div');
     infoContainer.setAttribute('class', 'row text-center');
@@ -160,54 +161,30 @@ function gamePage() {
         Moves: 001
     </div>
     `
-    mainContent.appendChild(infoContainer); 
+    mainContent.appendChild(infoContainer);
     // Create the game container
     const gameContainer = document.createElement('div');
+    gameContainer.setAttribute('class', 'game-container')
+    mainContent.appendChild(gameContainer);
     gameContainer.innerHTML = `
-    <div class="row cards-row">
-            <div class="col-4 text-right">
-                
-            </div>
-            <div class="col-4 text-center">
-                
-            </div>
-            <div class="col-4 text-left">
-                
-            </div>
-        </div>
-        <div class="row card-row">
-            <div class="col-4 text-right">
-                
-            </div>
-            <div class="col-4 text-center">
-                
-            </div>
-            <div class="col-4 text-left">
-                
-            </div>
-        </div>
-        <div class="col-4 text-right">
-                
-            </div>
-            <div class="col-4 text-center">
-                
-            </div>
-            <div class="col-4 text-left">
-                
-            </div>
-        </div>
-        <div class="row card-row">
-            <div class="col-4 text-right">
-                
-            </div>
-            <div class="col-4 text-center">
-                
-            </div>
-            <div class="col-4 text-left">
-                
-            </div>
-        </div>
+    <div class="row d-flex flex-wrap" id="classRow"> 
+    
     </div>
     `
-    mainContent.appendChild(gameContainer);
+    // Generate the game board
+    function generateGameBoard() {
+        let villagersCards = villagersArray.concat(villagersArray);
+        villagersCards.sort(() => 0.5 - Math.random())
+        for (let i = 0; i < villagersCards.length; i++) {
+            let cardsRow = document.getElementById('classRow');
+            let cardsCols = document.createElement('div');
+            cardsCols.classList.add('col-4', 'card-cols')
+            let cardsImage = document.createElement('img');
+            cardsImage.classList.add('img-fluid')
+            cardsImage.setAttribute('src', villagersCards[i].img);
+            cardsCols.appendChild(cardsImage);
+            cardsRow.appendChild(cardsCols);
+        }
+    }
+    generateGameBoard()
 }
