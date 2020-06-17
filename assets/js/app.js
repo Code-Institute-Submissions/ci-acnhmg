@@ -163,10 +163,51 @@ function gamePage() {
     mainContent.appendChild(infoContainer); 
     // Create the game container
     const gameContainer = document.createElement('div');
-    gameContainer.setAttribute('class', 'row');
     gameContainer.innerHTML = `
-    
+    <div class="row cards-row">
+            <div class="col-4 text-right">
+                
+            </div>
+            <div class="col-4 text-center">
+                
+            </div>
+            <div class="col-4 text-left">
+                
+            </div>
+        </div>
+        <div class="row card-row">
+            <div class="col-4 text-right">
+                
+            </div>
+            <div class="col-4 text-center">
+                
+            </div>
+            <div class="col-4 text-left">
+                
+            </div>
+        </div>
+        <div class="col-4 text-right">
+                
+            </div>
+            <div class="col-4 text-center">
+                
+            </div>
+            <div class="col-4 text-left">
+                
+            </div>
+        </div>
+        <div class="row card-row">
+            <div class="col-4 text-right">
+                
+            </div>
+            <div class="col-4 text-center">
+                
+            </div>
+            <div class="col-4 text-left">
+                
+            </div>
+        </div>
+    </div>
     `
-
-
+    mainContent.appendChild(gameContainer);
 }
