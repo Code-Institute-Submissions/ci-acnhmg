@@ -71,6 +71,7 @@ function rulesPage() {
 // gamePage function generates all elements for the rules page 
 function gamePage() {
     clearMainContent();
+    // Array collection of all fish (level 2 cards)
     const fishCards = [{
             name: 'betta',
             img: '/assets/images/fish/betta.jpg'
@@ -96,6 +97,7 @@ function gamePage() {
             img: '/assets/images/fish/seahorse.jpg'
         }
     ];
+    // Array collection of all insects (level 3 cards)
     const insectsCards = [{
             name: 'agrias',
             img: '/assets/images/insects/agrias.jpg'
@@ -121,6 +123,7 @@ function gamePage() {
             img: '/assets/images/insects/queen-alexandra-birdwing.jpg'
         }
     ];
+    // Array collection of all villagers (level 1 cards)
     const villagersCards = [{
             name: 'coach',
             img: '/assets/images/villagers/coach.png'
@@ -146,4 +149,24 @@ function gamePage() {
             img: '/assets/images/villagers/renee.png'
         }
     ];
+    // Create the top information container to display the timer and the click count
+    const infoContainer = document.createElement('div');
+    infoContainer.setAttribute('class', 'row text-center');
+    infoContainer.innerHTML = `
+    <div class="col-6 timer">
+        Time: 01:00 
+    </div>
+    <div class="col-6 moves">
+        Moves: 001
+    </div>
+    `
+    mainContent.appendChild(infoContainer); 
+    // Create the game container
+    const gameContainer = document.createElement('div');
+    gameContainer.setAttribute('class', 'row');
+    gameContainer.innerHTML = `
+    
+    `
+
+
 }
