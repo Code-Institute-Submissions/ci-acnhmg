@@ -7,27 +7,27 @@ const welcomeText = document.querySelector('.welcome-text');
 // Array collection of all villagers (level 1 cards)
 const villagersArray = [{
         name: 'coach',
-        img: '/assets/images/villagers/coach.png'
+        img: '/assets/images/villagers/coach.svg'
     },
     {
         name: 'eugene',
-        img: '/assets/images/villagers/eugene.png'
+        img: '/assets/images/villagers/eugene.svg'
     },
     {
         name: 'marina',
-        img: '/assets/images/villagers/marina.png'
+        img: '/assets/images/villagers/marina.svg'
     },
     {
         name: 'norma',
-        img: '/assets/images/villagers/norma.png'
+        img: '/assets/images/villagers/norma.svg'
     },
     {
         name: 'piper',
-        img: '/assets/images/villagers/piper.png'
+        img: '/assets/images/villagers/piper.svg'
     },
     {
         name: 'renee',
-        img: '/assets/images/villagers/renee.png'
+        img: '/assets/images/villagers/renee.svg'
     }
 ];
     // Array collection of all fish (level 2 cards)
@@ -67,11 +67,11 @@ const villagersArray = [{
     },
     {
         name: 'great-purple-emperor',
-        img: '/assets/images/insects/great-purple-emperor.png'
+        img: '/assets/images/insects/great-purple-emperor.svg'
     },
     {
         name: 'madagascar-sunset-moth',
-        img: '/assets/images/insects/madagascar-sunset-moth.png'
+        img: '/assets/images/insects/madagascar-sunset-moth.svg'
     },
     {
         name: 'orchid-mantis',
