@@ -197,27 +197,33 @@ function gamePage() {
     // Empty variables for storing first & second guess dataset name
     let guess1 = '';
     let guess2 = '';
+    let timeout = 1500;
 
     // Event listener for adding selected effect to cards
     gameContainer.addEventListener('click', function(e) {
         let clickedElement = e.target;
-        if (count < 2) {
+        if (count <= 2) {
             count++;
             // If count is 1 then add the selected card class and store the data value into guesss1
             if (count === 1) {
             guess1 = clickedElement.dataset.name;
             clickedElement.classList.add('selected-card');
+            console.log(clickedElement)
             } else {
                 // Now count is 2 so add the selected card class and store the data value into guesss2
                 guess2 = clickedElement.dataset.name;
                 clickedElement.classList.add('selected-card');
-            }
+                console.log(clickedElement)
+            } 
             // Check that the variables are not empty
             if (guess1 !== '' && guess2 !== '') {
                 // Check that the data values match
                 if (guess1 === guess2) {
                     // Call the match cards function
-                    matchCards();
+                    setTimeout(matchCards, timeout)
+                    setTimeout(resetCards, timeout)
+                } else {
+                    setTimeout(resetCards, timeout)
                 }
             }
         }
@@ -227,9 +233,21 @@ function gamePage() {
         // Get all selected cards 
         let selectedCards = document.querySelectorAll(".selected-card");
         // Loop over the array and add the match class to all cards
-        for(let i = 0; i < selectedCards.length; i++) {
+        for(let i = 0; i < 2; i++) {
             let card = document.querySelectorAll(".selected-card")[i];
             card.classList.add('match');
         }
+    }
+
+    function resetCards() {
+        guess1 = '';
+        guess2 = '';
+        count = 0;
+
+        // Get all selected cards 
+        let selectedCards = document.querySelectorAll(".selected-card");
+        // Remove selected-card class from the not maching cards
+        selectedCards[0].classList.remove('selected-card');
+        selectedCards[1].classList.remove('selected-card');
     }
 }
