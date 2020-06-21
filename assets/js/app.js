@@ -30,7 +30,7 @@ const villagersArray = [{
         img: '/assets/images/villagers/renee.svg'
     }
 ];
-    // Array collection of all fish (level 2 cards)
+// Array collection of all fish (level 2 cards)
     const fishCards = [{
         name: 'betta',
         img: '/assets/images/fish/betta.jpg'
@@ -56,7 +56,7 @@ const villagersArray = [{
         img: '/assets/images/fish/seahorse.jpg'
     }
 ];
-    // Array collection of all insects (level 3 cards)
+// Array collection of all insects (level 3 cards)
     const insectsCards = [{
         name: 'agrias',
         img: '/assets/images/insects/agrias.jpg'
@@ -180,11 +180,13 @@ function gamePage() {
             let cardsCols = document.createElement('div');
             cardsCols.classList.add('col-4', 'card-cols')
             let cardsImage = document.createElement('img');
-            cardsImage.classList.add('img-fluid')
+            cardsImage.classList.add('img-fluid', 'playing-card')
             cardsImage.setAttribute('src', villagersCards[i].img);
+            cardsImage.dataset.name = villagersCards[i].name;
             cardsCols.appendChild(cardsImage);
             cardsRow.appendChild(cardsCols);
         }
     }
     generateGameBoard()
+
 }
