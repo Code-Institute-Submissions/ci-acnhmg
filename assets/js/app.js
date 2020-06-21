@@ -167,40 +167,67 @@ function gamePage() {
     gameContainer.setAttribute('class', 'game-container')
     mainContent.appendChild(gameContainer);
     gameContainer.innerHTML = `
-    <div class="row d-flex flex-wrap" id="classRow"> 
+    <div class="row d-flex flex-wrap" id="cardsRow"> 
     
     </div>
     `
     // Generate the game board
-    function generateGameBoard() {
         // Duplicate cards so that we have 2 sets of 6 cards
         let villagersCards = villagersArray.concat(villagersArray);
         // Randomise the cards everytime script is run
         villagersCards.sort(() => 0.5 - Math.random())
         for (let i = 0; i < villagersCards.length; i++) {
-            let cardsRow = document.getElementById('classRow');
-            let cardsCols = document.createElement('div');
-            cardsCols.classList.add('col-4', 'card-cols')
+            let cardsRow = document.getElementById('cardsRow');
+            let card = document.createElement('div');
+            card.classList.add('col-4', 'card')
             let cardsImage = document.createElement('img');
-            cardsImage.classList.add('img-fluid', 'playing-card')
+            cardsImage.classList.add('img-fluid')
             cardsImage.setAttribute('src', villagersCards[i].img);
             cardsImage.dataset.name = villagersCards[i].name;
-            // Add image element to boostrap columns
-            cardsCols.appendChild(cardsImage);
-            // Add the columns to the row element
-            cardsRow.appendChild(cardsCols);
+            // Add image element to the cards div
+            card.appendChild(cardsImage);
+            // Add the the div to the row element
+            cardsRow.appendChild(card);
+        }
+    
+    // Counter for preventing more than 2 cards flipped
+    let count = 0;
+    // Empty variables for storing first & second guess dataset name
+    let guess1 = '';
+    let guess2 = '';
+
+    // Event listener for adding selected effect to cards
+    gameContainer.addEventListener('click', function(e) {
+        let clickedElement = e.target;
+        if (count < 2) {
+            count++;
+            // If count is 1 then add the selected card class and store the data value into guesss1
+            if (count === 1) {
+            guess1 = clickedElement.dataset.name;
+            clickedElement.classList.add('selected-card');
+            } else {
+                // Now count is 2 so add the selected card class and store the data value into guesss2
+                guess2 = clickedElement.dataset.name;
+                clickedElement.classList.add('selected-card');
+            }
+            // Check that the variables are not empty
+            if (guess1 !== '' && guess2 !== '') {
+                // Check that the data values match
+                if (guess1 === guess2) {
+                    // Call the match cards function
+                    matchCards();
+                }
+            }
+        }
+    })
+
+    function matchCards() {
+        // Get all selected cards 
+        let selectedCards = document.querySelectorAll(".selected-card");
+        // Loop over the array and add the match class to all cards
+        for(let i = 0; i < selectedCards.length; i++) {
+            let card = document.querySelectorAll(".selected-card")[i];
+            card.classList.add('match');
         }
     }
-    generateGameBoard();
-
-    let count = 0;
-
-    // Add selected class to cards when they're selected & prevent more than 2 card being selected
-    document.addEventListener('click', function() {
-        if (count < 3) {
-        let clickedElement = event.target;
-        count++;
-        clickedElement.classList.add('clicked-card');
-        };
-    })
 }
