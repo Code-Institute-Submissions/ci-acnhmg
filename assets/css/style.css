@@ -87,9 +87,18 @@ padding-top: 10px;;
   padding-bottom: 10px;
 }
 
+.card {
+  background: none;
+  border: none;
+}
+
 .selected-card {
    filter: contrast(150%);
 ;}
+
+.match {
+  filter: brightness(10%);
+}
 
 /* ! Custom media queries for mobile devices */
 @media (max-width: 768px) {
