@@ -87,6 +87,10 @@ padding-top: 10px;;
   padding-bottom: 10px;
 }
 
+.selected-card {
+   filter: contrast(150%);
+;}
+
 /* ! Custom media queries for mobile devices */
 @media (max-width: 768px) {
   .title-container img {

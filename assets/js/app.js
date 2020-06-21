@@ -173,7 +173,9 @@ function gamePage() {
     `
     // Generate the game board
     function generateGameBoard() {
+        // Duplicate cards so that we have 2 sets of 6 cards
         let villagersCards = villagersArray.concat(villagersArray);
+        // Randomise the cards everytime script is run
         villagersCards.sort(() => 0.5 - Math.random())
         for (let i = 0; i < villagersCards.length; i++) {
             let cardsRow = document.getElementById('classRow');
@@ -183,10 +185,22 @@ function gamePage() {
             cardsImage.classList.add('img-fluid', 'playing-card')
             cardsImage.setAttribute('src', villagersCards[i].img);
             cardsImage.dataset.name = villagersCards[i].name;
+            // Add image element to boostrap columns
             cardsCols.appendChild(cardsImage);
+            // Add the columns to the row element
             cardsRow.appendChild(cardsCols);
         }
     }
-    generateGameBoard()
+    generateGameBoard();
 
+    let count = 0;
+
+    // Add selected class to cards when they're selected & prevent more than 2 card being selected
+    document.addEventListener('click', function() {
+        if (count < 3) {
+        let clickedElement = event.target;
+        count++;
+        clickedElement.classList.add('clicked-card');
+        };
+    })
 }
