@@ -56,7 +56,9 @@ const villagersArray = [{
         img: '/assets/images/fish/seahorse.jpg'
     }
 ];
+
 // Array collection of all insects (level 3 cards)
+
     const insectsCards = [{
         name: 'agrias',
         img: '/assets/images/insects/agrias.jpg'
