@@ -182,13 +182,21 @@ function gamePage() {
             let cardsRow = document.getElementById('cardsRow');
             let card = document.createElement('div');
             card.classList.add('col-4', 'card')
+            let cardFront = document.createElement('div');
+            cardFront.classList.add('card-front')
+            let cardBack = document.createElement('div');
+            cardBack.classList.add('card-back')
+            let defaultImage = document.createElement('img');
+            defaultImage.classList.add('img-fluid')
+            defaultImage.setAttribute('src', '/assets/images/back-face.svg');
             let cardsImage = document.createElement('img');
             cardsImage.classList.add('img-fluid')
             cardsImage.setAttribute('src', villagersCards[i].img);
             cardsImage.dataset.name = villagersCards[i].name;
-            // Add image element to the cards div
-            card.appendChild(cardsImage);
-            // Add the the div to the row element
+            cardFront.appendChild(cardsImage);
+            cardBack.append(defaultImage);
+            card.appendChild(cardBack);
+            card.appendChild(cardFront);
             cardsRow.appendChild(card);
         }
     
@@ -206,14 +214,14 @@ function gamePage() {
             count++;
             // If count is 1 then add the selected card class and store the data value into guesss1
             if (count === 1) {
-            guess1 = clickedElement.dataset.name;
+            guess1 = clickedElement.parentNode.nextSibling.lastChild.dataset.name
             clickedElement.classList.add('selected-card');
-            console.log(clickedElement)
+            console.log(clickedElement.parentNode.nextSibling.lastChild.dataset.name)
             } else {
                 // Now count is 2 so add the selected card class and store the data value into guesss2
-                guess2 = clickedElement.dataset.name;
+                guess2 = clickedElement.parentNode.nextSibling.lastChild.dataset.name
                 clickedElement.classList.add('selected-card');
-                console.log(clickedElement)
+                console.log(clickedElement.parentNode.nextSibling.lastChild.dataset.name)
             } 
             // Check that the variables are not empty
             if (guess1 !== '' && guess2 !== '') {

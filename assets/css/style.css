@@ -99,6 +99,11 @@ padding-top: 10px;;
   filter: brightness(10%);
 }
 
+.card-back {
+  position: absolute;
+  width: inherit;
+}
+
 /* ! Custom media queries for mobile devices */
 @media (max-width: 768px) {
   .title-container img {
