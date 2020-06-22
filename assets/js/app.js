@@ -166,27 +166,44 @@ function gamePage() {
     </div>
     `
     mainContent.appendChild(infoContainer);
-    let sec = 10;
+
+    // Game timer 
+    // Initial settings & element selectors
+    let sec = 90;
     let timer = document.getElementById('timer');
     let interval;
     let warningSound = new Audio('/assets/beep.mp3');
     let endSound = new Audio('/assets/dundundun.mp3')
-    
-    function stopTimer() {
-        sec = 0;
-    }
 
     function timerStart(){
         interval = setInterval(function() {
             timer.innerText = `${sec} seconds remaining`;
             sec--
+            // If 10 or less seconds remaining (but not 0) then play warning sound
             if (sec < 10 && sec != 0) {
                 warningSound.play();
             }
+            // If 0 seconds remaining show 0 in the timer, show warning that user has lost the game and play the dundundun sound
             if (sec == 0) {
-                timer.innerText = `0 seconds remaining`;
-                alert('LOST');
                 endSound.play()
+                timer.innerText = `0 seconds remaining`;
+                mainContent.innerHTML = `
+                <div class="row">
+                    <div class="col-12 text-center tom-nook">
+                        <img src="/assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center rules-display">
+                        <div class="rules-section">
+                            <p id="rulesText">Oh no, <span class="playerName">${localStorage.getItem('playerName')}</span>...
+                            <br>
+                            Looks like you've lost... Why not try again?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                `
                 clearInterval(interval);
             }
         },1000)
@@ -239,7 +256,7 @@ function gamePage() {
     // Event listener for adding selected effect to cards
     gameContainer.addEventListener('click', function(e) {
         let clickedElement = e.target;
-        if (count <= 2) {
+        if (count <= 2 && e.target.nodeName === 'IMG') {
             count++;
             // If count is 1 then add the selected card class and store the data value into guesss1
             if (count === 1) {
@@ -272,7 +289,17 @@ function gamePage() {
         // Loop over the array and add the match class to all cards
         for(let i = 0; i < 2; i++) {
             let card = document.querySelectorAll(".selected-card")[i];
+            // Get the selected cards and apply match class to them
             card.classList.add('match');
+            // Select all matched cards and store them into matchedCards collection
+            let matchedCards = document.querySelectorAll('.match')
+            // Check if the length is 12 & if the timer is > 0
+            if (matchedCards.length == 12 && timerStart[sec] != 0) {
+                // Stop the timer
+                clearInterval(interval);
+                // Show success
+                alert('success')
+            }
         }
     }
 
@@ -287,4 +314,5 @@ function gamePage() {
         selectedCards[0].classList.remove('selected-card');
         selectedCards[1].classList.remove('selected-card');
     }
+
 }
