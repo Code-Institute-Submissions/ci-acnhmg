@@ -73,6 +73,11 @@ Background image used is a wood background that repeats across the entire site. 
 
 ## Deployment
 
+This website has been deployed and is hosted on GitHub Pages. It has been deployed straight from *master* branch. This has been done by navigating to the repository > Clicking on *Settings* > Scrolling down to *GitHub Pages* section > Selecting *master branch* as a source. 
+
+The page will update automatically with new/changed content once commits are pushed to the remote repo location using `git push` command. 
+
+If you wish to clone this repository, this can be done using `git clone https://github.com/ib-skoric/ci-acnhmg.git`
 
 ## Credits
 
