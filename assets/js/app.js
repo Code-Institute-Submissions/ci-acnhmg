@@ -1,6 +1,6 @@
 // Get element selectors 
 const playerName = document.getElementById('playerName');
-let playerLevel = localStorage.getItem('level');
+let playerLevel = sessionStorage.getItem('level');
 const nameButton = document.getElementById('nameForward');
 const mainContent = document.getElementById('mainContent');
 const welcomeText = document.querySelector('.welcome-text');
@@ -100,7 +100,8 @@ function savePlayer() {
         alert("Please enter your name to continue")
     } else {
         if (playerLevel == null || playerLevel == 1) {
-            localStorage.setItem('level', 1)
+            sessionStorage.setItem('playerName', playerName.value)
+            sessionStorage.setItem('level', 1)
             clearMainContent();
             rulesPage();
         } else {
@@ -130,7 +131,7 @@ function rulesPage() {
     <div class="row">
         <div class="col-12 text-center rules-display">
             <div class="rules-section">
-                <p id="rulesText">Hello <span class="playerName">${localStorage.getItem('playerName')}</span>...</p>
+                <p id="rulesText">Hello <span class="playerName">${sessionStorage.getItem('playerName')}</span>...</p>
             </div>
             <i class="fas fa-chevron-circle-right next-rule-glow" id="nextRule"></i>
             <p class="small-print">Click/tap on button to proceed</p>
@@ -202,7 +203,7 @@ function gamePage() {
                 <div class="row">
                     <div class="col-12 text-center rules-display">
                         <div class="rules-section">
-                            <p id="rulesText">Oh no, <span class="playerName">${localStorage.getItem('playerName')}</span>...
+                            <p id="rulesText">Oh no, <span class="playerName">${sessionStorage.getItem('playerName')}</span>...
                             <br>
                             Looks like you've lost... Why not try again?
                             </p>
@@ -318,6 +319,14 @@ function gamePage() {
     // Event listener for adding selected effect to cards
     gameContainer.addEventListener('click', function(e) {
         let clickedElement = e.target;
+        if (
+            clickedElement.nodeName != 'IMG' ||
+            clickedElement.classList.contains('selected-card') ||
+            clickedElement.classList.contains('match')
+        ) {
+            return;
+        }
+
         let flipSound = new Audio('/assets/flip.mp3')
         if (count <= 2 && e.target.nodeName === 'IMG') {
             count++;
@@ -345,9 +354,7 @@ function gamePage() {
                     setTimeout(resetCards, timeout)
                 }
             }
-        } else {
-            return;
-        }
+        } 
     })
 
     function matchCards() {
@@ -364,8 +371,6 @@ function gamePage() {
             if (matchedCards.length == 12 && timerStart[sec] != 0) {
                 // Stop the timer
                 clearInterval(interval);
-                // Assign level 2 to the level local storage variable
-                localStorage.setItem('level', 2)
                 // Show success
                 mainContent.innerHTML = `
                 <div class="row">
@@ -376,14 +381,23 @@ function gamePage() {
                 <div class="row">
                     <div class="col-12 text-center rules-display">
                         <div class="rules-section">
-                            <p id="rulesText">Oh no, <span class="playerName">${localStorage.getItem('playerName')}</span>...
+                            <p id="rulesText">Well done <span class="playerName">${sessionStorage.getItem('playerName')}</span> on completing level ${sessionStorage.getItem('level')}!!!
                             <br>
-                            Looks like you've lost... Why not try again?
+                            Ready to tackle next one? 
+
                             </p>
                         </div>
                     </div>
                 </div>
                 `
+                // Assign level 2 to the level local storage variable
+                if (playerLevel == 1) {
+                    sessionStorage.setItem('level', 2)
+                } else if (playerLevel == 2) {
+                    sessionStorage.setItem('level', 3)
+                } else if (playerLevel == 3) {
+                    sessionStorage.clear();
+                }
             }
         }
     }
@@ -392,6 +406,7 @@ function gamePage() {
         guess1 = '';
         guess2 = '';
         count = 0;
+        prevTarget = null;
 
         // Get all selected cards 
         let selectedCards = document.querySelectorAll(".selected-card");
