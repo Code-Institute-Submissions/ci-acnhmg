@@ -1,5 +1,6 @@
 // Get element selectors 
 const playerName = document.getElementById('playerName');
+let playerLevel = localStorage.getItem('level');
 const nameButton = document.getElementById('nameForward');
 const mainContent = document.getElementById('mainContent');
 const welcomeText = document.querySelector('.welcome-text');
@@ -31,41 +32,41 @@ const villagersArray = [{
     }
 ];
 // Array collection of all fish (level 2 cards)
-    const fishCards = [{
+    const fishArray = [{
         name: 'betta',
-        img: '/assets/images/fish/betta.jpg'
+        img: '/assets/images/fish/betta.svg'
     },
     {
         name: 'catfish',
-        img: '/assets/images/fish/catfish.jpg'
+        img: '/assets/images/fish/catfish.svg'
     },
     {
         name: 'clownfish',
-        img: '/assets/images/fish/clownfish.jpg'
+        img: '/assets/images/fish/clownfish.svg'
     },
     {
         name: 'oarfish',
-        img: '/assets/images/fish/oarfish.jpg'
+        img: '/assets/images/fish/oarfish.svg'
     },
     {
         name: 'seabass',
-        img: '/assets/images/fish/seabass.jpg'
+        img: '/assets/images/fish/seabass.svg'
     },
     {
         name: 'seahorse',
-        img: '/assets/images/fish/seahorse.jpg'
+        img: '/assets/images/fish/seahorse.svg'
     }
 ];
 
 // Array collection of all insects (level 3 cards)
 
-    const insectsCards = [{
+    const insectsArray = [{
         name: 'agrias',
-        img: '/assets/images/insects/agrias.jpg'
+        img: '/assets/images/insects/agrias.svg'
     },
     {
         name: 'emperor-butterfly',
-        img: '/assets/images/insects/emperor-butterfly.jpg'
+        img: '/assets/images/insects/emperor-butterfly.svg'
     },
     {
         name: 'great-purple-emperor',
@@ -77,16 +78,16 @@ const villagersArray = [{
     },
     {
         name: 'orchid-mantis',
-        img: '/assets/images/insects/orchid-mantis.jpg'
+        img: '/assets/images/insects/orchid-mantis.svg'
     },
     {
         name: 'queen-alexandra-birdwing',
-        img: '/assets/images/insects/queen-alexandra-birdwing.jpg'
+        img: '/assets/images/insects/queen-alexandra-birdwing.svg'
     }
 ];
 
 //Event listener for save player name
-nameButton.addEventListener('click', savePlayerName);
+nameButton.addEventListener('click', savePlayer);
 
 // Clear main content div function
 function clearMainContent() {
@@ -94,13 +95,18 @@ function clearMainContent() {
 }
 
 // Save player name to local storage function
-function savePlayerName() {
-    if (playerName.value == '') {
-        alert("Please enter an username to continue")
+function savePlayer() {
+    if (playerName.value == '' ) {
+        alert("Please enter your name to continue")
     } else {
-        localStorage.setItem("playerName", playerName.value);
-        clearMainContent();
-        rulesPage();
+        if (playerLevel == null || playerLevel == 1) {
+            localStorage.setItem('level', 1)
+            clearMainContent();
+            rulesPage();
+        } else {
+            clearMainContent();
+            gamePage();
+        }
     }
 }
 
@@ -159,7 +165,7 @@ function gamePage() {
     infoContainer.setAttribute('class', 'row text-center');
     infoContainer.innerHTML = `
     <div class="col-6" id="timer">
-        Time: 01:00 
+         
     </div>
     <div class="col-6 moves">
         Moves: 001
@@ -169,7 +175,7 @@ function gamePage() {
 
     // Game timer 
     // Initial settings & element selectors
-    let sec = 90;
+    let sec = 190;
     let timer = document.getElementById('timer');
     let interval;
     let warningSound = new Audio('/assets/beep.mp3');
@@ -219,7 +225,8 @@ function gamePage() {
     
     </div>
     `
-    // Generate the game board
+    if (playerLevel == 1) {
+    // Generate the game board for level 1
         // Duplicate cards so that we have 2 sets of 6 cards
         let villagersCards = villagersArray.concat(villagersArray);
         // Randomise the cards everytime script is run
@@ -245,6 +252,61 @@ function gamePage() {
             card.appendChild(cardFront);
             cardsRow.appendChild(card);
         }
+    } else if (playerLevel == 2) {
+        // Generate the game board for level 2
+        // Duplicate cards so that we have 2 sets of 6 cards
+        let fishCards = fishArray.concat(fishArray);
+        // Randomise the cards everytime script is run
+        fishCards.sort(() => 0.5 - Math.random())
+        for (let i = 0; i < fishCards.length; i++) {
+            let cardsRow = document.getElementById('cardsRow');
+            let card = document.createElement('div');
+            card.classList.add('col-sm-4', 'col-lg-3','card');
+            let cardFront = document.createElement('div'); 
+            cardFront.classList.add('card-front')
+            let cardBack = document.createElement('div');
+            cardBack.classList.add('card-back')
+            let defaultImage = document.createElement('img');
+            defaultImage.classList.add('img-fluid')
+            defaultImage.setAttribute('src', '/assets/images/back-face.svg');
+            let cardsImage = document.createElement('img');
+            cardsImage.classList.add('img-fluid')
+            cardsImage.setAttribute('src', fishCards[i].img);
+            cardsImage.dataset.name = fishCards[i].name;
+            cardFront.appendChild(cardsImage);
+            cardBack.append(defaultImage);
+            card.appendChild(cardBack);
+            card.appendChild(cardFront);
+            cardsRow.appendChild(card);
+        }
+    } else  if (playerLevel == 3) {
+        // Generate the game board for level 3
+        // Duplicate cards so that we have 2 sets of 6 cards
+        let insectsCards = insectsArray.concat(insectsArray);
+        // Randomise the cards everytime script is run
+        insectsCards.sort(() => 0.5 - Math.random())
+        for (let i = 0; i < insectsCards.length; i++) {
+            let cardsRow = document.getElementById('cardsRow');
+            let card = document.createElement('div');
+            card.classList.add('col-sm-4', 'col-lg-3','card');
+            let cardFront = document.createElement('div'); 
+            cardFront.classList.add('card-front')
+            let cardBack = document.createElement('div');
+            cardBack.classList.add('card-back')
+            let defaultImage = document.createElement('img');
+            defaultImage.classList.add('img-fluid')
+            defaultImage.setAttribute('src', '/assets/images/back-face.svg');
+            let cardsImage = document.createElement('img');
+            cardsImage.classList.add('img-fluid')
+            cardsImage.setAttribute('src', insectsCards[i].img);
+            cardsImage.dataset.name = insectsCards[i].name;
+            cardFront.appendChild(cardsImage);
+            cardBack.append(defaultImage);
+            card.appendChild(cardBack);
+            card.appendChild(cardFront);
+            cardsRow.appendChild(card);
+        }
+    }
     
     // Counter for preventing more than 2 cards flipped
     let count = 0;
@@ -256,15 +318,18 @@ function gamePage() {
     // Event listener for adding selected effect to cards
     gameContainer.addEventListener('click', function(e) {
         let clickedElement = e.target;
+        let flipSound = new Audio('/assets/flip.mp3')
         if (count <= 2 && e.target.nodeName === 'IMG') {
             count++;
             // If count is 1 then add the selected card class and store the data value into guesss1
             if (count === 1) {
+            flipSound.play();
             guess1 = clickedElement.parentNode.nextSibling.lastChild.dataset.name
             clickedElement.classList.add('selected-card');
             console.log(clickedElement.parentNode.nextSibling.lastChild.dataset.name)
             } else {
                 // Now count is 2 so add the selected card class and store the data value into guesss2
+                flipSound.play();
                 guess2 = clickedElement.parentNode.nextSibling.lastChild.dataset.name
                 clickedElement.classList.add('selected-card');
                 console.log(clickedElement.parentNode.nextSibling.lastChild.dataset.name)
@@ -280,6 +345,8 @@ function gamePage() {
                     setTimeout(resetCards, timeout)
                 }
             }
+        } else {
+            return;
         }
     })
 
@@ -297,8 +364,26 @@ function gamePage() {
             if (matchedCards.length == 12 && timerStart[sec] != 0) {
                 // Stop the timer
                 clearInterval(interval);
+                // Assign level 2 to the level local storage variable
+                localStorage.setItem('level', 2)
                 // Show success
-                alert('success')
+                mainContent.innerHTML = `
+                <div class="row">
+                    <div class="col-12 text-center tom-nook">
+                        <img src="/assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center rules-display">
+                        <div class="rules-section">
+                            <p id="rulesText">Oh no, <span class="playerName">${localStorage.getItem('playerName')}</span>...
+                            <br>
+                            Looks like you've lost... Why not try again?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                `
             }
         }
     }
@@ -314,5 +399,4 @@ function gamePage() {
         selectedCards[0].classList.remove('selected-card');
         selectedCards[1].classList.remove('selected-card');
     }
-
 }
