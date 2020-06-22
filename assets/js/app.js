@@ -207,7 +207,7 @@ function gamePage() {
     // Empty variables for storing first & second guess dataset name
     let guess1 = '';
     let guess2 = '';
-    let timeout = 1500;
+    let timeout = 1000;
 
     // Event listener for adding selected effect to cards
     gameContainer.addEventListener('click', function(e) {
