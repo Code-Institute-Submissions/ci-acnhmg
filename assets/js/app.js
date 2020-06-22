@@ -143,7 +143,7 @@ function rulesPage() {
                     rulesText.innerText = "And if you're not, you'll have to start from the start, that's right, yes, yes...";
                     nextRuleButton.addEventListener('click', function () {
                         rulesText.innerText = "Okay now, best of luck and go make your island proud!";
-                        nextRuleButton.addEventListener('click', gamePage);
+                        nextRuleButton.addEventListener('click', gamePage());
                     })
                 })
             })
@@ -158,7 +158,7 @@ function gamePage() {
     const infoContainer = document.createElement('div');
     infoContainer.setAttribute('class', 'row text-center');
     infoContainer.innerHTML = `
-    <div class="col-6 timer">
+    <div class="col-6" id="timer">
         Time: 01:00 
     </div>
     <div class="col-6 moves">
@@ -166,6 +166,33 @@ function gamePage() {
     </div>
     `
     mainContent.appendChild(infoContainer);
+    let sec = 10;
+    let timer = document.getElementById('timer');
+    let interval;
+    let warningSound = new Audio('/assets/beep.mp3');
+    let endSound = new Audio('/assets/dundundun.mp3')
+    
+    function stopTimer() {
+        sec = 0;
+    }
+
+    function timerStart(){
+        interval = setInterval(function() {
+            timer.innerText = `${sec} seconds remaining`;
+            sec--
+            if (sec < 10 && sec != 0) {
+                warningSound.play();
+            }
+            if (sec == 0) {
+                timer.innerText = `0 seconds remaining`;
+                alert('LOST');
+                endSound.play()
+                clearInterval(interval);
+            }
+        },1000)
+    }
+    timerStart();
+
     // Create the game container
     const gameContainer = document.createElement('div');
     gameContainer.setAttribute('class', 'game-container')
