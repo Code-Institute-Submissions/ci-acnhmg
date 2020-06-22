@@ -1,6 +1,14 @@
+
+![alt text](./assets/images/ac-newhorizons-logo.png "Animal Crossing (TM) New Horizons Logo")
 # Animal Crossing (TM) New Horizons - The Memory Game
 
 Memory game (or match the pairs game) inspired by a viral Nintendo Switch game Animal Crossing New Horizons. 
+
+## Live demo
+
+Live demo of the website can be found at ...link to go in here...
+
+...Responsive showcase image to go in here...
  
 ## UX
 
