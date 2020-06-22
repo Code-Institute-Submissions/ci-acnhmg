@@ -117,15 +117,17 @@ function rulesPage() {
     // Set the first rule page inner HTML
     rules.innerHTML = `
     <div class="row">
-        <div class="col-12 col-lg-6 text-center tom-nook">
+        <div class="col-12 text-center tom-nook">
             <img src="/assets/images/Tom_Nook.png" alt="" class='img-fluid'>
         </div>
-        <div class="col-12 col-lg-4 text-center rules-display">
-        <div class="rules-section">
-            <p id="rulesText">Hello <span class="playerName">${localStorage.getItem('playerName')}</span>...</p>
-        </div>
-        <i class="fas fa-chevron-circle-right next-rule-glow" id="nextRule"></i>
-        <p class="small-print">Click/tap on button to proceed</p>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center rules-display">
+            <div class="rules-section">
+                <p id="rulesText">Hello <span class="playerName">${localStorage.getItem('playerName')}</span>...</p>
+            </div>
+            <i class="fas fa-chevron-circle-right next-rule-glow" id="nextRule"></i>
+            <p class="small-print">Click/tap on button to proceed</p>
         </div>
     </div>
     `
@@ -181,8 +183,8 @@ function gamePage() {
         for (let i = 0; i < villagersCards.length; i++) {
             let cardsRow = document.getElementById('cardsRow');
             let card = document.createElement('div');
-            card.classList.add('col-4', 'card')
-            let cardFront = document.createElement('div');
+            card.classList.add('col-sm-4', 'col-lg-3','card');
+            let cardFront = document.createElement('div'); 
             cardFront.classList.add('card-front')
             let cardBack = document.createElement('div');
             cardBack.classList.add('card-back')
