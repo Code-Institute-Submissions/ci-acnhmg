@@ -48,11 +48,11 @@ Once user completes level 3 in time, user is presented with a congratilations mo
 
 Colour used as a main colour is #532901 (pictured below). This colour has been used for text and button elements throught the page.
 
+Background image used is a wood background that repeats across the entire site. *(see credits)*
+
 ...Image of the colour to go in here...
 
 ## Features
-
-
  
 ### Existing Features
 
@@ -62,7 +62,11 @@ Colour used as a main colour is #532901 (pictured below). This colour has been u
 
 ## Technologies Used
 
-
+1. HTML5
+2. CSS3
+3. [Bootstrap v4.4.1](https://getbootstrap.com/)
+4. [Font Awesome](https://fontawesome.com/start)
+5. JavaScript 
 
 ## Testing
 
@@ -74,9 +78,15 @@ Colour used as a main colour is #532901 (pictured below). This colour has been u
 
 ### Content
 
+All textual content has been written by myself. 
 
 ### Media
 
+Background image has been sourced from [toptal.com](https://www.toptal.com/designers/subtlepatterns/retina-wood/).
+
+All Animal Crossing (TM) images including images of the villagers, fish & insects has been sourced from [Critterpedia Plus](https://critterpedia-plus.mutoo.im/) and these are courtesy of Nintendo Comapny.
+
+Animal Crossing and Nintendo Switch are trademarks of Nintendo. 
 
 ### Acknowledgements
 
