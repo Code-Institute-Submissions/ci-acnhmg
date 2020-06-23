@@ -1,7 +1,7 @@
 /* ! GENERAL STYLING RULES */
 /* Add wood background */
 body {
-  background-image: url("./assets/images/retina_wood.png");
+  background-image: url("../images/retina_wood.png");
   color: #532901;
 }
 
