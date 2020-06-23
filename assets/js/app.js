@@ -165,11 +165,8 @@ function gamePage() {
     const infoContainer = document.createElement('div');
     infoContainer.setAttribute('class', 'row text-center');
     infoContainer.innerHTML = `
-    <div class="col-6" id="timer">
+    <div class="col-12 timer" id="timer">
          
-    </div>
-    <div class="col-6 moves">
-        Moves: 001
     </div>
     `
     mainContent.appendChild(infoContainer);
@@ -317,8 +314,8 @@ function gamePage() {
     // Empty variables for storing first & second guess dataset name
     let guess1 = '';
     let guess2 = '';
-    let timeout = 500;
-    let matchTimeout = 150;
+    let timeout = 750;
+    let matchTimeout = 250;
     
 
     // Event listener for adding selected effect to cards
