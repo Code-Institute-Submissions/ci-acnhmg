@@ -1,4 +1,3 @@
-
 ![alt text](./assets/images/ac-newhorizons-logo.png "Animal Crossing (TM) New Horizons Logo")
 # Animal Crossing (TM) New Horizons - The Memory Game
 
@@ -8,7 +7,7 @@ Memory game (or match the pairs game) inspired by a viral Nintendo Switch game A
 
 Live demo of the website can be found at [this link](https://ib-skoric.github.io/ci-acnhmg/).
 
-![alt text](./assets/docs/responsive-showcase.png "Animal Crossing (TM) New Horizons Logo")
+![alt text](./assets/docs/responsive-showcase.png "Responsive showcase of the website on various devices")
  
 ## UX
 
@@ -52,9 +51,10 @@ Once user completes level 3 in time a page clears and displays a congratulations
 
 Colour used as a main colour is #532901 (pictured below). This colour has been used for text and button elements throught the page.
 
+![alt text](./assets/docs/colour.png "Image of RGB #532901 colour")
+
 Background image used is a wood background that repeats across the entire site. *(see credits)*
 
-...Image of the colour to go in here...
 
 ## Features
  
@@ -89,9 +89,13 @@ If you wish to clone this repository, this can be done using `git clone https://
 
 All textual content has been written by myself. 
 
+I have loosely followed [this tutorial]('https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/') to get the core idea of how to structure the JavaScript application, and builded up the rest of the features myself.
+
 ### Media
 
 Background image has been sourced from [toptal.com](https://www.toptal.com/designers/subtlepatterns/retina-wood/).
+
+Sound files have been sourced from [soundbible.com](http://soundbible.com/) and are under copyright of their respective owners - licences vary.
 
 All Animal Crossing (TM) images including images of the villagers, fish & insects has been sourced from [Critterpedia Plus](https://critterpedia-plus.mutoo.im/) and these are courtesy of Nintendo Comapny.
 
