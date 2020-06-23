@@ -180,7 +180,8 @@ function gamePage() {
     let timer = document.getElementById('timer');
     let interval;
     let warningSound = new Audio('/assets/beep.mp3');
-    let endSound = new Audio('/assets/dundundun.mp3')
+    let endSound = new Audio('/assets/dundundun.mp3');
+    let winSound = new Audio('/assets/tada.mp3');
 
     function timerStart(){
         interval = setInterval(function() {
@@ -316,7 +317,7 @@ function gamePage() {
     // Empty variables for storing first & second guess dataset name
     let guess1 = '';
     let guess2 = '';
-    let timeout = 1000;
+    let timeout = 850;
 
     // Event listener for adding selected effect to cards
     gameContainer.addEventListener('click', function(e) {
@@ -328,7 +329,6 @@ function gamePage() {
         ) {
             return;
         }
-
         let flipSound = new Audio('/assets/flip.mp3')
         if (count <= 2 && e.target.nodeName === 'IMG') {
             count++;
@@ -373,16 +373,10 @@ function gamePage() {
             if (matchedCards.length == 12 && timerStart[sec] != 0) {
                 // Stop the timer
                 clearInterval(interval);
-                if (sessionStorage.getItem('level') == 1) {
-                    sessionStorage.setItem('level', 2);
-                } else if (sessionStorage.getItem('level') == 2) {
-                    sessionStorage.setItem('level', 3)
-                } else if (sessionStorage.getItem('level') == 3) {
-                    sessionStorage.clear();
-                }
                 // Show success messages
                 if (sessionStorage.getItem('level') == 1 || sessionStorage.getItem('level') == 2) {
                     // Assign level 2 to the level local storage variable
+                winSound.play();
                 mainContent.innerHTML = `
                 <div class="row">
                     <div class="col-12 text-center tom-nook">
@@ -392,7 +386,7 @@ function gamePage() {
                 <div class="row">
                     <div class="col-12 text-center message-display">
                         <div class="message-section">
-                            <p>Well done <span class="playerName">${sessionStorage.getItem('playerName')}</span> on completing level ${sessionStorage.getItem('level') - 1}!!!
+                            <p>Well done <span class="playerName">${sessionStorage.getItem('playerName')}</span> on completing level ${sessionStorage.getItem('level')}!!!
                             <br>
                             Ready to tackle next one? 
                             </p>
@@ -404,6 +398,7 @@ function gamePage() {
                 </div>
                 `
                 } else {
+                    winSound.play();
                     mainContent.innerHTML = `
                     <div class="row">
                     <div class="col-12 text-center tom-nook">
@@ -413,14 +408,23 @@ function gamePage() {
                 <div class="row">
                     <div class="col-12 text-center message-display">
                         <div class="message-section">
-                            <p>Ohlala! Congrats <span class="playerName">${sessionStorage.getItem('playerName')}</span> on completing the game!!!<p>
+                            <p>Ohlala! Congrats <span class="playerName">${sessionStorage.getItem('playerName')}</span> on completing the game!!
+                            <br> Want to give it another go?
+                            </p>
                         </div>
-                        <i class="fas fa-chevron-circle-right" id="nextLevel" onclick="gamePage()"></i>
-                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="location.href = '/index.html'"></i>
-                        <p class="small-print">Click/tap on button to proceed to next level or cancel the game</p>
+                        <i class="fas fa-sync-alt reset-game" id="resetGame" onclick="function() { sessionStorage.clear; gamePage(); }"></i>
+                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="function() { sessionStorage.clear; location.href = '/index.html' }"></i>
+                        <p class="small-print">Click/tap on button to proceed restart the game or to return to home page</p>
                     </div>
                 </div>
                 `
+                }
+                if (sessionStorage.getItem('level') == 1) {
+                    sessionStorage.setItem('level', 2);
+                } else if (sessionStorage.getItem('level') == 2) {
+                    sessionStorage.setItem('level', 3)
+                } else if (sessionStorage.getItem('level') == 3) {
+                    sessionStorage.clear();
                 }
             }
         }
