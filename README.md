@@ -6,9 +6,9 @@ Memory game (or match the pairs game) inspired by a viral Nintendo Switch game A
 
 ## Live demo
 
-Live demo of the website can be found at ...link to go in here...
+Live demo of the website can be found at [this link](https://ib-skoric.github.io/ci-acnhmg/).
 
-...Responsive showcase image to go in here...
+![alt text](./assets/docs/responsive-showcase.png "Animal Crossing (TM) New Horizons Logo")
  
 ## UX
 
