@@ -317,7 +317,9 @@ function gamePage() {
     // Empty variables for storing first & second guess dataset name
     let guess1 = '';
     let guess2 = '';
-    let timeout = 850;
+    let timeout = 500;
+    let matchTimeout = 150;
+    
 
     // Event listener for adding selected effect to cards
     gameContainer.addEventListener('click', function(e) {
@@ -350,8 +352,8 @@ function gamePage() {
                 // Check that the data values match
                 if (guess1 === guess2) {
                     // Call the match cards function
-                    setTimeout(matchCards, timeout)
-                    setTimeout(resetCards, timeout)
+                    setTimeout(matchCards, matchTimeout)
+                    setTimeout(resetCards, matchTimeout)
                 } else {
                     setTimeout(resetCards, timeout)
                 }
