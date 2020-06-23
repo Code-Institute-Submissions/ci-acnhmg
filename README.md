@@ -42,7 +42,11 @@ Once user completes level 3 in time, user is presented with a congratilations mo
 
 ### Skeleton
 
-...Wireframes to go in here...
+[Landing page wirefrime](assets/docs/landing-wireframe.png)
+
+[Rules page wirefrime](assets/docs/rules-wireframe.png)
+
+[Game page wirefrime](assets/docs/game-wireframe.png)
 
 ### Surface 
 
