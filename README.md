@@ -32,13 +32,13 @@ The landing page features the logo, title and a input field for the user to inpu
 
 Rules page contains image of Tim Nook (lead character in the game and Nook Inc. owner) and a speach bubble through witch the user navigates by clicking or tapping the same call to aciton button.
 
-After user goes through the rules, user is brought to the game screen that consists of the logo, timer, moves counter and 12 cards.
+After user goes through the rules, user is brought to the game screen that consists of the logo, timer and 12 cards.
 
-Once user completes level 1 in time call to action button appears which leads the user to level 2.
+Once user completes level 1 in time a page clears and displays a congratulations message and 2 buttons to either proceed to next level or cancel the game.
 
-Once user completes level 2 in time call to action button appears which leads the user to level 3.
+Once user completes level 2 in time a page clears and displays a congratulations message and 2 buttons to either proceed to next level or cancel the game.
 
-Once user completes level 3 in time, user is presented with a congratilations modal.
+Once user completes level 3 in time a page clears and displays a congratulations message and 2 buttons to either replay the game or go back to home page.
 
 ### Skeleton
 
