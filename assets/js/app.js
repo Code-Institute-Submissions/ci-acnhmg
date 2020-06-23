@@ -1,6 +1,5 @@
 // Get element selectors 
 const playerName = document.getElementById('playerName');
-let playerLevel = sessionStorage.getItem('level');
 const nameButton = document.getElementById('nameForward');
 const mainContent = document.getElementById('mainContent');
 const welcomeText = document.querySelector('.welcome-text');
@@ -99,7 +98,7 @@ function savePlayer() {
     if (playerName.value == '' ) {
         alert("Please enter your name to continue")
     } else {
-        if (playerLevel == null || playerLevel == 1) {
+        if (sessionStorage.getItem('level') == null || sessionStorage.getItem('level') == 1) {
             sessionStorage.setItem('playerName', playerName.value)
             sessionStorage.setItem('level', 1)
             clearMainContent();
@@ -133,7 +132,7 @@ function rulesPage() {
             <div class="rules-section">
                 <p id="rulesText">Hello <span class="playerName">${sessionStorage.getItem('playerName')}</span>...</p>
             </div>
-            <i class="fas fa-chevron-circle-right next-rule-glow" id="nextRule"></i>
+            <i class="fas fa-chevron-circle-right" id="nextRule"></i>
             <p class="small-print">Click/tap on button to proceed</p>
         </div>
     </div>
@@ -161,6 +160,7 @@ function rulesPage() {
 // gamePage function generates all elements for the rules page 
 function gamePage() {
     clearMainContent();
+    sessionStorage.getItem('level');
     // Create the top information container to display the timer and the click count
     const infoContainer = document.createElement('div');
     infoContainer.setAttribute('class', 'row text-center');
@@ -201,13 +201,15 @@ function gamePage() {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 text-center rules-display">
-                        <div class="rules-section">
-                            <p id="rulesText">Oh no, <span class="playerName">${sessionStorage.getItem('playerName')}</span>...
-                            <br>
+                    <div class="col-12 text-center message-display">
+                        <div class="message-section">
+                            <p>Oh no, <span class="playerName">${sessionStorage.getItem('playerName')}</span>...
                             Looks like you've lost... Why not try again?
                             </p>
                         </div>
+                        <i class="fas fa-sync-alt reset-game" id="resetGame" onclick="gamePage()"></i>
+                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="location.href = '/index.html'"></i>
+                        <p class="small-print">Click/tap on button to restart or cancel the game</p>
                     </div>
                 </div>
                 `
@@ -226,7 +228,7 @@ function gamePage() {
     
     </div>
     `
-    if (playerLevel == 1) {
+    if (sessionStorage.getItem('level') == 1) {
     // Generate the game board for level 1
         // Duplicate cards so that we have 2 sets of 6 cards
         let villagersCards = villagersArray.concat(villagersArray);
@@ -253,7 +255,7 @@ function gamePage() {
             card.appendChild(cardFront);
             cardsRow.appendChild(card);
         }
-    } else if (playerLevel == 2) {
+    } else if (sessionStorage.getItem('level') == 2) {
         // Generate the game board for level 2
         // Duplicate cards so that we have 2 sets of 6 cards
         let fishCards = fishArray.concat(fishArray);
@@ -280,7 +282,7 @@ function gamePage() {
             card.appendChild(cardFront);
             cardsRow.appendChild(card);
         }
-    } else  if (playerLevel == 3) {
+    } else  if (sessionStorage.getItem('level') == 3) {
         // Generate the game board for level 3
         // Duplicate cards so that we have 2 sets of 6 cards
         let insectsCards = insectsArray.concat(insectsArray);
@@ -371,7 +373,16 @@ function gamePage() {
             if (matchedCards.length == 12 && timerStart[sec] != 0) {
                 // Stop the timer
                 clearInterval(interval);
-                // Show success
+                if (sessionStorage.getItem('level') == 1) {
+                    sessionStorage.setItem('level', 2);
+                } else if (sessionStorage.getItem('level') == 2) {
+                    sessionStorage.setItem('level', 3)
+                } else if (sessionStorage.getItem('level') == 3) {
+                    sessionStorage.clear();
+                }
+                // Show success messages
+                if (sessionStorage.getItem('level') == 1 || sessionStorage.getItem('level') == 2) {
+                    // Assign level 2 to the level local storage variable
                 mainContent.innerHTML = `
                 <div class="row">
                     <div class="col-12 text-center tom-nook">
@@ -379,24 +390,37 @@ function gamePage() {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 text-center rules-display">
-                        <div class="rules-section">
-                            <p id="rulesText">Well done <span class="playerName">${sessionStorage.getItem('playerName')}</span> on completing level ${sessionStorage.getItem('level')}!!!
+                    <div class="col-12 text-center message-display">
+                        <div class="message-section">
+                            <p>Well done <span class="playerName">${sessionStorage.getItem('playerName')}</span> on completing level ${sessionStorage.getItem('level') - 1}!!!
                             <br>
                             Ready to tackle next one? 
-
                             </p>
                         </div>
+                        <i class="fas fa-chevron-circle-right" id="nextLevel" onclick="gamePage()"></i>
+                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="location.href = '/index.html'"></i>
+                        <p class="small-print">Click/tap on button to proceed to next level or cancel the game</p>
                     </div>
                 </div>
                 `
-                // Assign level 2 to the level local storage variable
-                if (playerLevel == 1) {
-                    sessionStorage.setItem('level', 2)
-                } else if (playerLevel == 2) {
-                    sessionStorage.setItem('level', 3)
-                } else if (playerLevel == 3) {
-                    sessionStorage.clear();
+                } else {
+                    mainContent.innerHTML = `
+                    <div class="row">
+                    <div class="col-12 text-center tom-nook">
+                        <img src="/assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center message-display">
+                        <div class="message-section">
+                            <p>Ohlala! Congrats <span class="playerName">${sessionStorage.getItem('playerName')}</span> on completing the game!!!<p>
+                        </div>
+                        <i class="fas fa-chevron-circle-right" id="nextLevel" onclick="gamePage()"></i>
+                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="location.href = '/index.html'"></i>
+                        <p class="small-print">Click/tap on button to proceed to next level or cancel the game</p>
+                    </div>
+                </div>
+                `
                 }
             }
         }

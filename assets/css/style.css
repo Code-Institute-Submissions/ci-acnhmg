@@ -32,11 +32,11 @@ input.player-name {
   background-color: #ffffff93;
 }
 
-i.fas,
-.next-rule {
+i.fas {
   font-size: 4rem;
   padding-top: 5%;
   color: #532901;
+  cursor: pointer; 
 }
 
 /* ! RULES PAGE STYLING */
@@ -55,17 +55,20 @@ span.playerName {
   font-size: 1.5rem;
 }
 
-/* Rules text box styles */
-.rules-display {
+/* Rules & messages text box styles */
+.rules-display,
+.message-display {
   margin-top: 5%;
 }
 
-.rules-section {
+.rules-section,
+.message-section {
   background-color: #d18e5070;
   border-radius: 10px;
 }
 
-.rules-section p {
+.rules-section p,
+.message-section p {
   padding-top: 4vh;
   padding-bottom: 4vh;
 }
@@ -91,6 +94,10 @@ padding-top: 10px;;
   background: none;
   border: none;
   margin-bottom: 10px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 .selected-card {
@@ -110,6 +117,10 @@ padding-top: 10px;;
 .card-back {
   position: absolute;
   width: inherit;
+}
+
+.cancel-game {
+  padding-left: 20px;
 }
 
 /* ! Custom media queries for mobile devices */
@@ -140,20 +151,25 @@ padding-top: 10px;;
  .rules-section p {
    margin: 5%
  }
+
  .card {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   background: none;
   border: none;
   margin: 10px;
-}
+ }
+
 .card-front {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
 }
 
 .card-back {
   position: absolute;
   width: inherit;
+}
+.game-container {
+  padding-left: 7%;
 }
 }
