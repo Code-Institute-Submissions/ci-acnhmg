@@ -60,17 +60,28 @@ Background image used is a wood background that repeats across the entire site. 
  
 ### Existing Features
 
+The game features a user input element and a simple introduction to the game to help user undestand the rules of the game.
+
+The game itself consists of a 12 cards (6 pairs) which user has to match within set time (90 seconds).
+
+The game has 3 different levels - matching Animal Crossing(TM) villagers at level 1, fish at level 2 & insects at level 3.
+
+Users progression is saved to session storage so it can be retreived later if the user decides to play the game at later date.
+
+After every level (apart from last) user can choose weather to proceed to next level or to cancel the game.
 
 ### Features Left to Implement
 
+It would be great to implement a database for storing player data and progression as well as more levels & a leaderboard that would pull the data for the aforementioned database. 
 
 ## Technologies Used
 
 1. HTML5
 2. CSS3
 3. [Bootstrap v4.4.1](https://getbootstrap.com/)
-4. [Font Awesome](https://fontawesome.com/start)
-5. JavaScript 
+4. jQuery (only as part of Bootstrap)
+5. [Font Awesome](https://fontawesome.com/start)
+6. JavaScript 
 
 ## Testing
 
