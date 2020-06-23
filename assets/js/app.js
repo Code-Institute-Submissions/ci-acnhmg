@@ -7,53 +7,53 @@ const welcomeText = document.querySelector('.welcome-text');
 // Array collection of all villagers (level 1 cards)
 const villagersArray = [{
         name: 'coach',
-        img: '/assets/images/villagers/coach.svg'
+        img: 'assets/images/villagers/coach.svg'
     },
     {
         name: 'eugene',
-        img: '/assets/images/villagers/eugene.svg'
+        img: 'assets/images/villagers/eugene.svg'
     },
     {
         name: 'marina',
-        img: '/assets/images/villagers/marina.svg'
+        img: 'assets/images/villagers/marina.svg'
     },
     {
         name: 'norma',
-        img: '/assets/images/villagers/norma.svg'
+        img: 'assets/images/villagers/norma.svg'
     },
     {
         name: 'piper',
-        img: '/assets/images/villagers/piper.svg'
+        img: 'assets/images/villagers/piper.svg'
     },
     {
         name: 'renee',
-        img: '/assets/images/villagers/renee.svg'
+        img: 'assets/images/villagers/renee.svg'
     }
 ];
 // Array collection of all fish (level 2 cards)
     const fishArray = [{
         name: 'betta',
-        img: '/assets/images/fish/betta.svg'
+        img: 'assets/images/fish/betta.svg'
     },
     {
         name: 'catfish',
-        img: '/assets/images/fish/catfish.svg'
+        img: 'assets/images/fish/catfish.svg'
     },
     {
         name: 'clownfish',
-        img: '/assets/images/fish/clownfish.svg'
+        img: 'assets/images/fish/clownfish.svg'
     },
     {
         name: 'oarfish',
-        img: '/assets/images/fish/oarfish.svg'
+        img: 'assets/images/fish/oarfish.svg'
     },
     {
         name: 'seabass',
-        img: '/assets/images/fish/seabass.svg'
+        img: 'assets/images/fish/seabass.svg'
     },
     {
         name: 'seahorse',
-        img: '/assets/images/fish/seahorse.svg'
+        img: 'assets/images/fish/seahorse.svg'
     }
 ];
 
@@ -61,27 +61,27 @@ const villagersArray = [{
 
     const insectsArray = [{
         name: 'agrias',
-        img: '/assets/images/insects/agrias.svg'
+        img: 'assets/images/insects/agrias.svg'
     },
     {
         name: 'emperor-butterfly',
-        img: '/assets/images/insects/emperor-butterfly.svg'
+        img: 'assets/images/insects/emperor-butterfly.svg'
     },
     {
         name: 'great-purple-emperor',
-        img: '/assets/images/insects/great-purple-emperor.svg'
+        img: 'assets/images/insects/great-purple-emperor.svg'
     },
     {
         name: 'madagascar-sunset-moth',
-        img: '/assets/images/insects/madagascar-sunset-moth.svg'
+        img: 'assets/images/insects/madagascar-sunset-moth.svg'
     },
     {
         name: 'orchid-mantis',
-        img: '/assets/images/insects/orchid-mantis.svg'
+        img: 'assets/images/insects/orchid-mantis.svg'
     },
     {
         name: 'queen-alexandra-birdwing',
-        img: '/assets/images/insects/queen-alexandra-birdwing.svg'
+        img: 'assets/images/insects/queen-alexandra-birdwing.svg'
     }
 ];
 
@@ -124,7 +124,7 @@ function rulesPage() {
     rules.innerHTML = `
     <div class="row">
         <div class="col-12 text-center tom-nook">
-            <img src="/assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+            <img src="assets/images/Tom_Nook.png" alt="" class='img-fluid'>
         </div>
     </div>
     <div class="row">
@@ -176,9 +176,9 @@ function gamePage() {
     let sec = 190;
     let timer = document.getElementById('timer');
     let interval;
-    let warningSound = new Audio('/assets/beep.mp3');
-    let endSound = new Audio('/assets/dundundun.mp3');
-    let winSound = new Audio('/assets/tada.mp3');
+    let warningSound = new Audio('assets/beep.mp3');
+    let endSound = new Audio('assets/dundundun.mp3');
+    let winSound = new Audio('assets/tada.mp3');
 
     function timerStart(){
         interval = setInterval(function() {
@@ -195,7 +195,7 @@ function gamePage() {
                 mainContent.innerHTML = `
                 <div class="row">
                     <div class="col-12 text-center tom-nook">
-                        <img src="/assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+                        <img src="assets/images/Tom_Nook.png" alt="" class='img-fluid'>
                     </div>
                 </div>
                 <div class="row">
@@ -242,7 +242,7 @@ function gamePage() {
             cardBack.classList.add('card-back')
             let defaultImage = document.createElement('img');
             defaultImage.classList.add('img-fluid')
-            defaultImage.setAttribute('src', '/assets/images/back-face.svg');
+            defaultImage.setAttribute('src', 'assets/images/back-face.svg');
             let cardsImage = document.createElement('img');
             cardsImage.classList.add('img-fluid')
             cardsImage.setAttribute('src', villagersCards[i].img);
@@ -269,7 +269,7 @@ function gamePage() {
             cardBack.classList.add('card-back')
             let defaultImage = document.createElement('img');
             defaultImage.classList.add('img-fluid')
-            defaultImage.setAttribute('src', '/assets/images/back-face.svg');
+            defaultImage.setAttribute('src', 'assets/images/back-face.svg');
             let cardsImage = document.createElement('img');
             cardsImage.classList.add('img-fluid')
             cardsImage.setAttribute('src', fishCards[i].img);
@@ -296,7 +296,7 @@ function gamePage() {
             cardBack.classList.add('card-back')
             let defaultImage = document.createElement('img');
             defaultImage.classList.add('img-fluid')
-            defaultImage.setAttribute('src', '/assets/images/back-face.svg');
+            defaultImage.setAttribute('src', 'assets/images/back-face.svg');
             let cardsImage = document.createElement('img');
             cardsImage.classList.add('img-fluid')
             cardsImage.setAttribute('src', insectsCards[i].img);
@@ -379,7 +379,7 @@ function gamePage() {
                 mainContent.innerHTML = `
                 <div class="row">
                     <div class="col-12 text-center tom-nook">
-                        <img src="/assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+                        <img src="assets/images/Tom_Nook.png" alt="" class='img-fluid'>
                     </div>
                 </div>
                 <div class="row">
@@ -401,7 +401,7 @@ function gamePage() {
                     mainContent.innerHTML = `
                     <div class="row">
                     <div class="col-12 text-center tom-nook">
-                        <img src="/assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+                        <img src="assets/images/Tom_Nook.png" alt="" class='img-fluid'>
                     </div>
                 </div>
                 <div class="row">
