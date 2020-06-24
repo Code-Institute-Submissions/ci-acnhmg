@@ -13,13 +13,12 @@ body {
 }
 
 .title-container h1 {
-  padding-top: 2%;
+  padding-top: 1%;
   font-size: 2rem;
 }
 
 .title-container p {
   padding-top: 1%;
-  padding-bottom: 1%;
 }
 
 /* Input styling for index page */
@@ -80,12 +79,13 @@ padding-top: 10px;;
 
 /* ! GAME PAGE STYLING */
 
-.timer {
-  padding: 10px;
+.level-title {
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
-.moves {
-  padding-top: 10px;
+.timer {
+  padding: 1%;
 }
 
 .card {
@@ -98,15 +98,16 @@ padding-top: 10px;;
   display: flex;
   -webkit-align-items: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .selected-card {
-   filter: contrast(150%);
    visibility: hidden;
 }
 
 .match {
-  filter: brightness(10%);
+
+  filter: brightness(20%);
 }
 
 .card-front {
@@ -175,7 +176,7 @@ padding-top: 10px;;
 }
 
 /* ! Media queries for tablet devices */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .game-container {
     padding-left: 15%;
   }

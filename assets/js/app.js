@@ -164,6 +164,9 @@ function gamePage() {
     const infoContainer = document.createElement('div');
     infoContainer.setAttribute('class', 'row text-center');
     infoContainer.innerHTML = `
+    <div class="col-12 level-title" id="levelTitle">
+        Level ${sessionStorage.getItem('level')}
+    </div>
     <div class="col-12 timer" id="timer">
          
     </div>
