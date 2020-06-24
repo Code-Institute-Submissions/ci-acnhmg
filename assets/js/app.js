@@ -157,7 +157,7 @@ function rulesPage() {
     });
 }
 
-// gamePage function generates all elements for the rules page 
+// generates all elements for the game page 
 function gamePage() {
     clearMainContent();
     sessionStorage.getItem('level');
@@ -328,7 +328,7 @@ function gamePage() {
         ) {
             return;
         }
-        let flipSound = new Audio('/assets/flip.mp3')
+        let flipSound = new Audio('assets/flip.mp3')
         if (count <= 2 && e.target.nodeName === 'IMG') {
             count++;
             // If count is 1 then add the selected card class and store the data value into guesss1
