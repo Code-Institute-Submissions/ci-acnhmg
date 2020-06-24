@@ -1,4 +1,3 @@
-// Get element selectors 
 const playerName = document.getElementById('playerName');
 const nameButton = document.getElementById('nameForward');
 const mainContent = document.getElementById('mainContent');
@@ -98,7 +97,7 @@ function savePlayer() {
     if (playerName.value == '' ) {
         alert("Please enter your name to continue")
     } else {
-        if (sessionStorage.getItem('level') == null || sessionStorage.getItem('level') == 1) {
+        if (sessionStorage.getItem('level') == null) {
             sessionStorage.setItem('playerName', playerName.value)
             sessionStorage.setItem('level', 1)
             clearMainContent();
@@ -110,7 +109,7 @@ function savePlayer() {
     }
 }
 
-// rulesPage function generates all elements for the rules page 
+// generates all elements for the rules page 
 function rulesPage() {
     // Remove welcome screen text 
     welcomeText.remove();
@@ -391,7 +390,7 @@ function gamePage() {
                             </p>
                         </div>
                         <i class="fas fa-chevron-circle-right" id="nextLevel" onclick="gamePage()"></i>
-                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="location.href = '/index.html'"></i>
+                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="location.href = 'index.html'"></i>
                         <p class="small-print">Click/tap on button to proceed to next level or cancel the game</p>
                     </div>
                 </div>
@@ -412,7 +411,7 @@ function gamePage() {
                             </p>
                         </div>
                         <i class="fas fa-sync-alt reset-game" id="resetGame" onclick="function() { sessionStorage.clear; gamePage(); }"></i>
-                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="function() { sessionStorage.clear; location.href = '/index.html' }"></i>
+                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="function() { sessionStorage.clear; location.href = 'index.html' }"></i>
                         <p class="small-print">Click/tap on button to proceed restart the game or to return to home page</p>
                     </div>
                 </div>
