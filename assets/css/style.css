@@ -19,6 +19,7 @@ body {
 
 .title-container p {
   padding-top: 1%;
+  padding-bottom: 2%;
 }
 
 /* Input styling for index page */
@@ -31,11 +32,16 @@ input.player-name {
   background-color: #ffffff93;
 }
 
-i.fas {
+i.fas.fa-chevron-circle-right {
   font-size: 4rem;
   padding-top: 5%;
   color: #532901;
   cursor: pointer; 
+}
+
+.mute-control .fas {
+  padding-top: 10px;
+  font-size: 3rem;
 }
 
 /* ! RULES PAGE STYLING */
@@ -130,6 +136,10 @@ padding-top: 10px;;
     width: 30%;
   }
 
+  .volume-control .fas {
+    font-size: 3rem;
+  }
+
   .title-container p {
     font-size: 1rem;
     padding-top: 10%;
@@ -171,12 +181,12 @@ padding-top: 10px;;
   width: inherit;
 }
 .game-container {
-  padding-left: 6%;
+  padding-left: 10%;
 }
 }
 
 /* ! Media queries for tablet devices */
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 991.98px) {
   .game-container {
     padding-left: 15%;
   }
