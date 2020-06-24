@@ -235,7 +235,7 @@ function gamePage() {
         for (let i = 0; i < villagersCards.length; i++) {
             let cardsRow = document.getElementById('cardsRow');
             let card = document.createElement('div');
-            card.classList.add('col-sm-4', 'col-lg-3','card');
+            card.classList.add('col-sm-4', 'col-md-3', 'col-lg-3','card');
             let cardFront = document.createElement('div'); 
             cardFront.classList.add('card-front')
             let cardBack = document.createElement('div');
@@ -262,7 +262,7 @@ function gamePage() {
         for (let i = 0; i < fishCards.length; i++) {
             let cardsRow = document.getElementById('cardsRow');
             let card = document.createElement('div');
-            card.classList.add('col-sm-4', 'col-lg-3','card');
+            card.classList.add('col-sm-4', 'col-md-3', 'col-lg-3','card');
             let cardFront = document.createElement('div'); 
             cardFront.classList.add('card-front')
             let cardBack = document.createElement('div');
@@ -289,7 +289,7 @@ function gamePage() {
         for (let i = 0; i < insectsCards.length; i++) {
             let cardsRow = document.getElementById('cardsRow');
             let card = document.createElement('div');
-            card.classList.add('col-sm-4', 'col-lg-3','card');
+            card.classList.add('col-sm-4', 'col-md-3', 'col-lg-3','card');
             let cardFront = document.createElement('div'); 
             cardFront.classList.add('card-front')
             let cardBack = document.createElement('div');

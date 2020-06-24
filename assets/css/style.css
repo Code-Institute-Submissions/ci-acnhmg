@@ -157,7 +157,7 @@ padding-top: 10px;;
   height: 100px;
   background: none;
   border: none;
-  margin: 10px;
+  margin: 5px;
  }
 
 .card-front {
@@ -170,6 +170,13 @@ padding-top: 10px;;
   width: inherit;
 }
 .game-container {
-  padding-left: 7%;
+  padding-left: 6%;
 }
+}
+
+/* ! Media queries for tablet devices */
+@media (min-width: 768px) {
+  .game-container {
+    padding-left: 15%;
+  }
 }
