@@ -123,7 +123,7 @@ function rulesPage() {
     rules.innerHTML = `
     <div class="row">
         <div class="col-12 text-center tom-nook">
-            <img src="assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+            <img src="assets/images/Tom_Nook.png" alt="Image of Tom Nook" class='img-fluid'>
         </div>
     </div>
     <div class="row">
@@ -197,7 +197,7 @@ function gamePage() {
                 mainContent.innerHTML = `
                 <div class="row">
                     <div class="col-12 text-center tom-nook">
-                        <img src="assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+                        <img src="assets/images/Tom_Nook.png" alt="Image of Tom Nook" class='img-fluid'>
                     </div>
                 </div>
                 <div class="row">
@@ -248,6 +248,7 @@ function gamePage() {
             let cardsImage = document.createElement('img');
             cardsImage.classList.add('img-fluid')
             cardsImage.setAttribute('src', villagersCards[i].img);
+            cardsImage.setAttribute('alt', `Image of ${villagersCards[i].name}`)
             cardsImage.dataset.name = villagersCards[i].name;
             cardFront.appendChild(cardsImage);
             cardBack.append(defaultImage);
@@ -275,6 +276,7 @@ function gamePage() {
             let cardsImage = document.createElement('img');
             cardsImage.classList.add('img-fluid')
             cardsImage.setAttribute('src', fishCards[i].img);
+            cardsImage.setAttribute('alt', `Image of ${fishCards[i].name}`)
             cardsImage.dataset.name = fishCards[i].name;
             cardFront.appendChild(cardsImage);
             cardBack.append(defaultImage);
@@ -302,6 +304,7 @@ function gamePage() {
             let cardsImage = document.createElement('img');
             cardsImage.classList.add('img-fluid')
             cardsImage.setAttribute('src', insectsCards[i].img);
+            cardsImage.setAttribute('alt', `Image of ${insectsCards[i].name}`)
             cardsImage.dataset.name = insectsCards[i].name;
             cardFront.appendChild(cardsImage);
             cardBack.append(defaultImage);
@@ -381,7 +384,7 @@ function gamePage() {
                 mainContent.innerHTML = `
                 <div class="row">
                     <div class="col-12 text-center tom-nook">
-                        <img src="assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+                        <img src="assets/images/Tom_Nook.png" alt="Image of Tom Nook" class='img-fluid'>
                     </div>
                 </div>
                 <div class="row">
@@ -403,7 +406,7 @@ function gamePage() {
                     mainContent.innerHTML = `
                     <div class="row">
                     <div class="col-12 text-center tom-nook">
-                        <img src="assets/images/Tom_Nook.png" alt="" class='img-fluid'>
+                        <img src="assets/images/Tom_Nook.png" alt="Image of Tom Nook" class='img-fluid'>
                     </div>
                 </div>
                 <div class="row">
