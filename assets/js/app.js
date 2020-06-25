@@ -94,9 +94,21 @@ function clearMainContent() {
 
 // Save player name to local storage function
 function savePlayer() {
+    let easy = document.getElementById('easy');
+    let normal = document.getElementById('normal');
+    let hard = document.getElementById('hard');
     if (playerName.value == '' ) {
         alert("Please enter your name to continue")
     } else {
+        if (easy.checked === true) {
+            sessionStorage.setItem('difficulty', 'easy')
+        }
+        if (normal.checked === true) {
+            sessionStorage.setItem('difficulty', 'normal')
+        }
+        if (hard.checked === true) {
+            sessionStorage.setItem('difficulty', 'hard')
+        }
         if (sessionStorage.getItem('level') == null) {
             sessionStorage.setItem('playerName', playerName.value)
             sessionStorage.setItem('level', 1)
@@ -193,16 +205,23 @@ function gamePage() {
 
     // Game timer 
     // Initial settings & element selectors
-    let sec = 190;
     let timer = document.getElementById('timer');
     let interval;
+    let sec;
+    if (sessionStorage.getItem('difficulty') == 'easy') {
+        sec = 120;
+    } else if (sessionStorage.getItem('difficulty') == 'normal') {
+        sec = 90;
+    } else if (sessionStorage.getItem('difficulty') == 'hard') {
+        sec = 60;
+    }
     let warningSound = new Audio('assets/beep.mp3');
     let endSound = new Audio('assets/dundundun.mp3');
     let winSound = new Audio('assets/tada.mp3');
     if (sessionStorage.getItem('volume') == 'mute') {
     
     } 
-    function timerStart(){
+    function timerStart(){   
         interval = setInterval(function() {
             timer.innerText = `${sec} seconds remaining`;
             sec--

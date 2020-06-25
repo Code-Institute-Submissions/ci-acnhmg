@@ -32,6 +32,10 @@ input.player-name {
   background-color: #ffffff93;
 }
 
+.difficulty {
+  padding-top: 1%;
+}
+
 i.fas.fa-chevron-circle-right {
   font-size: 4rem;
   padding-top: 5%;
