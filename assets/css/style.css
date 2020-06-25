@@ -39,11 +39,6 @@ i.fas.fa-chevron-circle-right {
   cursor: pointer; 
 }
 
-.mute-control .fas {
-  padding-top: 10px;
-  font-size: 3rem;
-}
-
 /* ! RULES PAGE STYLING */
 /* Tom Nook character image styles */
 .tom-nook {
@@ -91,7 +86,7 @@ padding-top: 10px;;
 }
 
 .timer {
-  padding: 1%;
+  padding-bottom: 1%;
 }
 
 .card {
@@ -112,7 +107,6 @@ padding-top: 10px;;
 }
 
 .match {
-
   filter: brightness(20%);
 }
 
@@ -126,6 +120,13 @@ padding-top: 10px;;
   width: inherit;
 }
 
+.cancel-game,
+.reset-game {
+  font-size: 4rem;
+  color: #532901;
+  cursor: pointer; 
+}
+
 .cancel-game {
   padding-left: 20px;
 }
@@ -134,10 +135,6 @@ padding-top: 10px;;
 @media (max-width: 768px) {
   .title-container img {
     width: 30%;
-  }
-
-  .volume-control .fas {
-    font-size: 3rem;
   }
 
   .title-container p {
