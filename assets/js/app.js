@@ -160,18 +160,36 @@ function rulesPage() {
 function gamePage() {
     clearMainContent();
     sessionStorage.getItem('level');
-    // Create the top information container to display the timer and the click count
+    // Create the top information container to display the timer and level title
     const infoContainer = document.createElement('div');
     infoContainer.setAttribute('class', 'row text-center');
     infoContainer.innerHTML = `
-    <div class="col-12 level-title" id="levelTitle">
+    <div class="col-4 level-title" id="levelTitle">
         Level ${sessionStorage.getItem('level')}
     </div>
-    <div class="col-12 timer" id="timer">
+    <div class="col-4 timer" id="timer">
          
+    </div>
+    <div class="col-4 volume" id="volume">
+        <i class="fas fa-volume-up" id="muteSound"></i>
+        <i class="fas fa-volume-mute d-none" id="enableSound"></i>
     </div>
     `
     mainContent.appendChild(infoContainer);
+
+    // Volume control 
+    const muteSoundButton = document.getElementById('muteSound');
+    const enableSoundButton = document.getElementById('enableSound');
+    muteSoundButton.addEventListener('click', function () {
+        muteSoundButton.classList.add('d-none')
+        enableSoundButton.classList.remove('d-none');
+        sessionStorage.setItem('volume', 'mute');
+    })
+    enableSoundButton.addEventListener('click', function () {
+        muteSoundButton.classList.remove('d-none')
+        enableSoundButton.classList.add('d-none');
+        sessionStorage.removeItem('volume')
+    })
 
     // Game timer 
     // Initial settings & element selectors
@@ -181,19 +199,27 @@ function gamePage() {
     let warningSound = new Audio('assets/beep.mp3');
     let endSound = new Audio('assets/dundundun.mp3');
     let winSound = new Audio('assets/tada.mp3');
-
+    if (sessionStorage.getItem('volume') == 'mute') {
+    
+    } 
     function timerStart(){
         interval = setInterval(function() {
             timer.innerText = `${sec} seconds remaining`;
             sec--
             // If 10 or less seconds remaining (but not 0) then play warning sound
             if (sec < 10 && sec != 0) {
-                warningSound.play();
+                // Check if sound is mute before playing the sound
+                if (sessionStorage.getItem('volume') != 'mute') {
+                    warningSound.play();
+                } 
             }
             // If 0 seconds remaining show 0 in the timer, show warning that user has lost the game and play the dundundun sound
             if (sec == 0) {
-                endSound.play()
                 timer.innerText = `0 seconds remaining`;
+                // Check if sound is mute before playing the sound
+                if (sessionStorage.getItem('volume') != 'mute') {
+                    endSound.play();
+                } 
                 mainContent.innerHTML = `
                 <div class="row">
                     <div class="col-12 text-center tom-nook">
@@ -333,7 +359,10 @@ function gamePage() {
         ) {
             return;
         }
-        let flipSound = new Audio('assets/flip.mp3')
+        const flipSound = new Audio('assets/flip.mp3');
+        if (sessionStorage.getItem('volume') !== null ) {
+            flipSound.muted = true;
+        }
         if (count <= 2 && e.target.nodeName === 'IMG') {
             count++;
             // If count is 1 then add the selected card class and store the data value into guesss1
@@ -380,7 +409,9 @@ function gamePage() {
                 // Show success messages
                 if (sessionStorage.getItem('level') == 1 || sessionStorage.getItem('level') == 2) {
                     // Assign level 2 to the level local storage variable
-                winSound.play();
+                if (sessionStorage.getItem('volume') != 'mute') {
+                        winSound.play();
+                } 
                 mainContent.innerHTML = `
                 <div class="row">
                     <div class="col-12 text-center tom-nook">
@@ -402,7 +433,9 @@ function gamePage() {
                 </div>
                 `
                 } else {
-                    winSound.play();
+                    if (sessionStorage.getItem('volume') != 'mute') {
+                        winSound.play();
+                } 
                     mainContent.innerHTML = `
                     <div class="row">
                     <div class="col-12 text-center tom-nook">
