@@ -319,8 +319,8 @@ function gamePage() {
     // Empty variables for storing first & second guess dataset name
     let guess1 = '';
     let guess2 = '';
-    let timeout = 750;
-    let matchTimeout = 250;
+    let timeout = 600;
+    let matchTimeout = 200;
     
 
     // Event listener for adding selected effect to cards
