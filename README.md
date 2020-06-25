@@ -85,6 +85,34 @@ It would be great to implement a database for storing player data and progressio
 
 ## Testing
 
+Upon loading the webpage the user is presented with a welcome screen, welcome message, an input filed and a forward button.
+User can click on the input field and input their name. After this, the user presses the forward button. If the name field is empty an alert window is presented to the users informing them they need to input their name in order to proceed. User's name is kept in session storage of the browser.
+
+After successfuly entering the name, if the user is visiting the game for the first time (ie. session storage has no level information stored), the users is presented with 5 slides explaining the rules of the game. The user navigates these by clicking or tapping the forward button.
+
+Once navigated through the rules the user is presented with a set of 12 cards (6 pairs). At the top of the cards, user can see which level they're at, how much time they've remaining and the sound control button.
+
+Once the user clicks on a card the card front image is shown reveiling a villager (Level 1), fish (Level 2) or insect (Level 3). A card flip sound is played each time a user click on a card. If the two selected cards **do not** match, the card simply turn back. If the cards do match, they flip back and grey out. The user is unable to click on those cards again. The goal for the user is to complete the game (match 6 pairs) before the timer runs out. If the user succedes, a tada sound is playerd & a congratulations modal is desplayed promting the user to either continue to the next level or to cancel the game. Proceeding will bring the user to the next level (if the current level is 1 & 2). If the user cancels out the game the landing page is displayed again and user's progress is wiped. 
+
+If the user does not manage to match the cards in time a dun-dun-dun sound is played & game over screen is presented offering the user to repeat the level or to cancel out the game. 
+
+There were bugs found which were fixed and impact of some has been minimised, an non exhaustive list includes:
+1. Sound playing even though the user has choosen to mute it (fixed by tracing all sound effects in `app.js` file)
+2. 2 non-matching cards would get matched if a user matches 2 matching cards but very quickly taps on the tird card (effects minimised by altering timeouts for the flip and match effects)
+3. Game not scaling properly on tablet devices (fixed by adding custom media queries into `style.css` file)
+
+This has been tested using (all on 13" Macbook Pro with macOS 10.15.3 + on an external 24" display):
+
++ Google Chrome 83.0.4103.116
++ Opera 69.0.3686.36
++ Firefox 77.0.1
++ Safari 13.1.1
+
++ Safari on iOS 13.5.1 (Apple iPhone 11 Pro Max)
++ Safari on iOS 13.5.1 (Apple iPhone XR) 
++ Safari on iOS 8.1 (Apple iPad Air 2) 
++ Internet Explorer 10 - via https://www.ieonchrome.com/ 
++ Internet Explorer 11 - via https://www.ieonchrome.com/
 
 ## Deployment
 
