@@ -234,7 +234,7 @@ function gamePage() {
                             </p>
                         </div>
                         <i class="fas fa-sync-alt reset-game" id="resetGame" onclick="gamePage()"></i>
-                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="location.href = '/index.html'"></i>
+                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="function() { sessionStorage.clear; location.href = 'index.html' }"></i>
                         <p class="small-print">Click/tap on button to restart or cancel the game</p>
                     </div>
                 </div>
@@ -427,7 +427,7 @@ function gamePage() {
                             </p>
                         </div>
                         <i class="fas fa-chevron-circle-right" id="nextLevel" onclick="gamePage()"></i>
-                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="location.href = 'index.html'"></i>
+                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="function() { sessionStorage.clear; location.href = 'index.html' }"></i>
                         <p class="small-print">Click/tap on button to proceed to next level or cancel the game</p>
                     </div>
                 </div>
