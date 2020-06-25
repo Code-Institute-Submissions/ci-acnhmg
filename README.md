@@ -1,7 +1,7 @@
 ![alt text](./assets/images/ac-newhorizons-logo.png "Animal Crossing (TM) New Horizons Logo")
 # Animal Crossing (TM) New Horizons - The Memory Game
 
-Memory game (or match the pairs game) inspired by a viral Nintendo Switch game Animal Crossing New Horizons. 
+Memory game (or match the pairs game) inspired by a viral Nintendo Switch(TM) game Animal Crossing(TM) New Horizons. 
 
 ## Live demo
 
@@ -101,7 +101,7 @@ There were bugs found which were fixed and impact of some has been minimised, an
 2. 2 non-matching cards would get matched if a user matches 2 matching cards but very quickly taps on the tird card (effects minimised by altering timeouts for the flip and match effects)
 3. Game not scaling properly on tablet devices (fixed by adding custom media queries into `style.css` file)
 
-This has been tested using (all on 13" Macbook Pro with macOS 10.15.3 + on an external 24" display):
+This has been tested using (all on 13" Macbook Pro with macOS 10.15.5 & on an external 24" display):
 
 + Google Chrome 83.0.4103.116
 + Opera 69.0.3686.36
@@ -111,8 +111,9 @@ This has been tested using (all on 13" Macbook Pro with macOS 10.15.3 + on an ex
 + Safari on iOS 13.5.1 (Apple iPhone 11 Pro Max)
 + Safari on iOS 13.5.1 (Apple iPhone XR) 
 + Safari on iOS 8.1 (Apple iPad Air 2) 
-+ Internet Explorer 10 - via https://www.ieonchrome.com/ 
-+ Internet Explorer 11 - via https://www.ieonchrome.com/
++ Also tested on Chrome on all above devices but that's irrelevant due to Apple restricting developers to only WebKit (Safari engine) for website render ie. all other browsers are just different looking Safaris. 
+
+The website has also been tested via the [W3C Markup Validation Service](https://validator.w3.org/) & [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).
 
 ## Deployment
 
@@ -128,8 +129,6 @@ If you wish to clone this repository, this can be done using `git clone https://
 
 All textual content has been written by myself. 
 
-I have loosely followed [this tutorial]('https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/') to get the core idea of how to structure the JavaScript application, and builded up the rest of the features myself.
-
 ### Media
 
 Background image has been sourced from [toptal.com](https://www.toptal.com/designers/subtlepatterns/retina-wood/).
@@ -138,8 +137,16 @@ Sound files have been sourced from [soundbible.com](http://soundbible.com/) and 
 
 All Animal Crossing (TM) images including images of the villagers, fish & insects has been sourced from [Critterpedia Plus](https://critterpedia-plus.mutoo.im/) and these are courtesy of Nintendo Comapny.
 
+Sketch 61 was used to create card SVG images.
+
 Animal Crossing and Nintendo Switch are trademarks of Nintendo. 
 
 ### Acknowledgements
+
+I have loosely followed [this tutorial]('https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/') to get the core idea of how to structure the JavaScript application, and builded up the rest of the features myself.
+
+To create the showcase image shown under live demo section techsini's Multidevice Mockup Generator's been used.
+
+To my girlfriend who came up with the theme for the game and helped me pick out the characters.
 
 
