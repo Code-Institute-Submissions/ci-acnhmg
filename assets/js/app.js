@@ -145,7 +145,7 @@ function rulesPage() {
             nextRuleButton.addEventListener('click', function () {
                 rulesText.innerText = "If you succeed, you'll be brought to the next level";
                 nextRuleButton.addEventListener('click', function () {
-                    rulesText.innerText = "And if you're not, you'll have to start from the start, that's right, yes, yes...";
+                    rulesText.innerText = "And if you're not, you'll have to try again - maybe even couple of times!";
                     nextRuleButton.addEventListener('click', function () {
                         rulesText.innerText = "Okay now, best of luck and go make your island proud!";
                         nextRuleButton.addEventListener('click', gamePage());
