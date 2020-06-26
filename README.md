@@ -61,9 +61,11 @@ Background image used is a wood background that repeats across the entire site. 
 
 The game features a user input element and a simple introduction to the game to help user understand the rules of the game.
 
-The game itself consists of a 12 cards (6 pairs) which user has to match within set time (90 seconds).
+The game itself consists of a 12 cards (6 pairs) which user has to match within set time (depending on the level 120, 90 or 60 seconds).
 
 The game has 3 different levels - matching Animal Crossing(TM) villagers at level 1, fish at level 2 & insects at level 3.
+
+The game has 3 difficulty modes - easy, normal and hard which sets different timers for the game effectively making the game harder.
 
 Users progression is saved to session storage so it can be retrieved later if the user decides to play the game at later date.
 
@@ -85,7 +87,8 @@ It would be great to implement a database for storing player data and progressio
 ## Testing
 
 Upon loading the webpage the user is presented with a welcome screen, welcome message, an input filed and a forward button.
-User can click on the input field and input their name. After this, the user presses the forward button. If the name field is empty an alert window is presented to the users informing them they need to input their name in order to proceed. User's name is kept in session storage of the browser.
+User can click on the input field and input their name. Underneath 'your name' field, user can choose game difficutly level which will change the timer and make the game harder. If the user chooses the default 'Normal' option, timer is set for 90 seconds, easy mode gives the user 120 and hard 60 seconds respectively.
+After this, the user presses the forward button. If the name field is empty an alert window is presented to the users informing them they need to input their name in order to proceed. User's name & difficulty level is kept in session storage of the browser.
 
 After successfully entering the name, if the user is visiting the game for the first time (ie. session storage has no level information stored), the users is presented with 5 slides explaining the rules of the game. The user navigates these by clicking or tapping the forward button.
 
