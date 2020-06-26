@@ -389,13 +389,11 @@ function gamePage() {
             flipSound.play();
             guess1 = clickedElement.parentNode.nextSibling.lastChild.dataset.name
             clickedElement.classList.add('selected-card');
-            console.log(clickedElement.parentNode.nextSibling.lastChild.dataset.name)
             } else if (count === 2) {
                 // Now count is 2 so add the selected card class and store the data value into guesss2
                 flipSound.play();
                 guess2 = clickedElement.parentNode.nextSibling.lastChild.dataset.name
                 clickedElement.classList.add('selected-card');
-                console.log(clickedElement.parentNode.nextSibling.lastChild.dataset.name)
                 // Check that the variables are not empty
             if (guess1 !== '' && guess2 !== '') {
                 // Check that the data values match
