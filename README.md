@@ -150,4 +150,4 @@ I have loosely followed [this tutorial]('https://www.taniarascia.com/how-to-crea
 
 To create the showcase image shown under live demo section techsini's Multidevice Mockup Generator's been used.
 
-To my girlfriend who came up with the theme for the game and helped me pick out the characters.
+To my girlfriend who came up with the theme for the game and helped me pick out the cards to be used.
