@@ -92,6 +92,10 @@ function clearMainContent() {
     mainContent.innerHTML = '';
 }
 
+function removeWelcomeText() {
+    welcomeText.remove();
+}
+
 // Save player name to local storage function
 function savePlayer() {
     let easy = document.getElementById('easy');
@@ -115,6 +119,7 @@ function savePlayer() {
             clearMainContent();
             rulesPage();
         } else {
+            removeWelcomeText();
             clearMainContent();
             gamePage();
         }
@@ -124,7 +129,7 @@ function savePlayer() {
 // generates all elements for the rules page 
 function rulesPage() {
     // Remove welcome screen text 
-    welcomeText.remove();
+    removeWelcomeText();
     // Create new div element
     const rules = document.createElement('div')
     // Set class="rules" 
@@ -148,7 +153,7 @@ function rulesPage() {
         </div>
     </div>
     `
-    // Assing nextRuleButton to the chevron icon
+    // Assing nextRuleButton to the chevron icon & create rules slides
     nextRuleButton = document.getElementById('nextRule');
     nextRuleButton.addEventListener('click', function () {
         rulesText.innerText = "I shall now explain the rules of the game to you, yes, yes...";
@@ -170,7 +175,9 @@ function rulesPage() {
 
 // generates all elements for the game page 
 function gamePage() {
+    // Clear the main content div
     clearMainContent();
+    // Check for user level
     sessionStorage.getItem('level');
     // Create the top information container to display the timer and level title
     const infoContainer = document.createElement('div');
@@ -208,6 +215,7 @@ function gamePage() {
     let timer = document.getElementById('timer');
     let interval;
     let sec;
+    // Check which difficutly level has user selected
     if (sessionStorage.getItem('difficulty') == 'easy') {
         sec = 120;
     } else if (sessionStorage.getItem('difficulty') == 'normal') {
@@ -218,9 +226,6 @@ function gamePage() {
     let warningSound = new Audio('assets/beep.mp3');
     let endSound = new Audio('assets/dundundun.mp3');
     let winSound = new Audio('assets/tada.mp3');
-    if (sessionStorage.getItem('volume') == 'mute') {
-    
-    } 
     function timerStart(){   
         interval = setInterval(function() {
             timer.innerText = `${sec} seconds remaining`;
@@ -253,7 +258,7 @@ function gamePage() {
                             </p>
                         </div>
                         <i class="fas fa-sync-alt reset-game" id="resetGame" onclick="gamePage()"></i>
-                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="function() { sessionStorage.clear; location.href = 'index.html' }"></i>
+                        <a href="index.html"><i class="fas fa-times-circle cancel-game" id="exitGame" onclick="sessionStorage.clear()"></i></a>
                         <p class="small-print">Click/tap on button to restart or cancel the game</p>
                     </div>
                 </div>
@@ -366,7 +371,7 @@ function gamePage() {
     let guess2 = '';
     let timeout = 600;
     let matchTimeout = 200;
-    
+    const flipSound = new Audio('assets/flip.mp3');
 
     // Event listener for adding selected effect to cards
     gameContainer.addEventListener('click', function(e) {
@@ -378,7 +383,6 @@ function gamePage() {
         ) {
             return;
         }
-        const flipSound = new Audio('assets/flip.mp3');
         if (sessionStorage.getItem('volume') !== null ) {
             flipSound.muted = true;
         }
@@ -408,7 +412,6 @@ function gamePage() {
             } 
         } 
     })
-
     function matchCards() {
         // Get all selected cards 
         let selectedCards = document.querySelectorAll(".selected-card");
@@ -425,7 +428,7 @@ function gamePage() {
                 clearInterval(interval);
                 // Show success messages
                 if (sessionStorage.getItem('level') == 1 || sessionStorage.getItem('level') == 2) {
-                    // Assign level 2 to the level local storage variable
+                // Check if sound is muted or not
                 if (sessionStorage.getItem('volume') != 'mute') {
                         winSound.play();
                 } 
@@ -444,7 +447,7 @@ function gamePage() {
                             </p>
                         </div>
                         <i class="fas fa-chevron-circle-right" id="nextLevel" onclick="gamePage()"></i>
-                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="function() { sessionStorage.clear; location.href = 'index.html' }"></i>
+                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="window.location.href = 'index.html'"></i>
                         <p class="small-print">Click/tap on button to proceed to next level or cancel the game</p>
                     </div>
                 </div>
@@ -466,8 +469,8 @@ function gamePage() {
                             <br> Want to give it another go?
                             </p>
                         </div>
-                        <i class="fas fa-sync-alt reset-game" id="resetGame" onclick="function() { sessionStorage.clear; gamePage(); }"></i>
-                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="function() { sessionStorage.clear; location.href = 'index.html' }"></i>
+                        <i class="fas fa-sync-alt reset-game" id="resetGame" onclick="gamePage()"></i>
+                        <a href="index.html"><i class="fas fa-times-circle cancel-game" id="exitGame" onclick="sessionStorage.clear()"></i></a>
                         <p class="small-print">Click/tap on button to proceed restart the game or to return to home page</p>
                     </div>
                 </div>
@@ -478,7 +481,7 @@ function gamePage() {
                 } else if (sessionStorage.getItem('level') == 2) {
                     sessionStorage.setItem('level', 3)
                 } else if (sessionStorage.getItem('level') == 3) {
-                    sessionStorage.clear();
+                    sessionStorage.setItem('level', 1)
                 }
             }
         }
