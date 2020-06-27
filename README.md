@@ -100,8 +100,9 @@ If the user does not manage to match the cards in time a dun-dun-dun sound is pl
 
 There were bugs found which were fixed and impact of some has been minimised, an non-exhaustive list includes:
 1. Sound playing even though the user has chosen to mute it (fixed by tracing all sound effects in 'app.js' file)
-2. 2 non-matching cards would get matched if a user matches 2 matching cards but very quickly taps on the third card (effects minimised by altering timeouts for the flip and match effects)
+2. 2 non-matching cards would get matched if a user matches 2 matching cards but very quickly taps on the third card (fixed by addding another condition to the if statements inside app.js)
 3. Game not scaling properly on tablet devices (fixed by adding custom media queries into 'style.css' file)
+4. Buttons on level transition screens/game lost/game won pages were not working (fixed by altering the logic between when session storage is wiped and wrapping some buttons in anchor tags)
 
 This has been tested using (all on 13" Macbook Pro with macOS 10.15.5 & on an external 24" display):
 
