@@ -1,7 +1,21 @@
+
 const playerName = document.getElementById('playerName');
 const nameButton = document.getElementById('nameForward');
 const mainContent = document.getElementById('mainContent');
 const welcomeText = document.querySelector('.welcome-text');
+let savedPlayerName = sessionStorage.getItem('playerName');
+let savedPlayerLevel = sessionStorage.getItem('level');
+let easy = document.getElementById('easy');
+let normal = document.getElementById('normal');
+let hard = document.getElementById('hard');
+
+window.onload = function() {
+    if (savedPlayerName != null) {
+        playerName.value = savedPlayerName;
+    } else {
+        playerName.value = ''
+    }
+ }
 
 // Array collection of all villagers (level 1 cards)
 const villagersArray = [{
@@ -84,7 +98,19 @@ const villagersArray = [{
     }
 ];
 
-//Event listener for save player name
+function setDifficulty() {
+    if (easy.checked === true) {
+        sessionStorage.setItem('difficulty', 'easy')
+    }
+    if (normal.checked === true) {
+        sessionStorage.setItem('difficulty', 'normal')
+    }
+    if (hard.checked === true) {
+        sessionStorage.setItem('difficulty', 'hard')
+    }
+}
+
+//Event listener for save player name & difficutly
 nameButton.addEventListener('click', savePlayer);
 
 // Clear main content div function
@@ -98,31 +124,17 @@ function removeWelcomeText() {
 
 // Save player name to local storage function
 function savePlayer() {
-    let easy = document.getElementById('easy');
-    let normal = document.getElementById('normal');
-    let hard = document.getElementById('hard');
     if (playerName.value == '' ) {
         alert("Please enter your name to continue")
-    } else {
-        if (easy.checked === true) {
-            sessionStorage.setItem('difficulty', 'easy')
-        }
-        if (normal.checked === true) {
-            sessionStorage.setItem('difficulty', 'normal')
-        }
-        if (hard.checked === true) {
-            sessionStorage.setItem('difficulty', 'hard')
-        }
-        if (sessionStorage.getItem('level') == null) {
-            sessionStorage.setItem('playerName', playerName.value)
-            sessionStorage.setItem('level', 1)
-            clearMainContent();
-            rulesPage();
-        } else {
-            removeWelcomeText();
-            clearMainContent();
-            gamePage();
-        }
+    } else if (savedPlayerName != playerName.value) {
+        sessionStorage.setItem('playerName', playerName.value);
+        sessionStorage.setItem('level', 1);
+        setDifficulty();
+        clearMainContent();
+        rulesPage();
+    } else if (savedPlayerName == playerName.value) {
+        clearMainContent();
+        gamePage();
     }
 }
 
@@ -175,6 +187,7 @@ function rulesPage() {
 
 // generates all elements for the game page 
 function gamePage() {
+    removeWelcomeText();
     // Clear the main content div
     clearMainContent();
     // Check for user level
