@@ -116,7 +116,7 @@ This has been tested using (all on 13" Macbook Pro with macOS 10.15.5 & on an ex
 + Safari on iOS 8.1 (Apple iPad Air 2)
 + Also tested on Chrome on all above devices but that's irrelevant due to Apple restricting developers to only WebKit (Safari engine) for website render ie. all other browsers are just different looking Safaris.
 
-The website has also been tested via the [W3C Markup Validation Service](https://validator.w3.org/) & [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).
+The website has also been tested via the [W3C Markup Validation Service](https://validator.w3.org/), [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) & [JSHint JS Validator](https://jshint.com/).
 
 ## Deployment
 
