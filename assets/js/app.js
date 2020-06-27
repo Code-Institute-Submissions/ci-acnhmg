@@ -285,34 +285,34 @@ function gamePage() {
 
     // Create the game container
     const gameContainer = document.createElement('div');
-    gameContainer.setAttribute('class', 'game-container');
+    gameContainer.setAttribute('class', 'game-container')
     mainContent.appendChild(gameContainer);
     gameContainer.innerHTML = `
     <div class="row d-flex flex-wrap" id="cardsRow"> 
     
     </div>
-    `;
+    `
     if (sessionStorage.getItem('level') == 1) {
     // Generate the game board for level 1
         // Duplicate cards so that we have 2 sets of 6 cards
         let villagersCards = villagersArray.concat(villagersArray);
         // Randomise the cards everytime script is run
-        villagersCards.sort(() => 0.5 - Math.random());
+        villagersCards.sort(() => 0.5 - Math.random())
         for (let i = 0; i < villagersCards.length; i++) {
             let cardsRow = document.getElementById('cardsRow');
             let card = document.createElement('div');
             card.classList.add('col-sm-4', 'col-md-3', 'col-lg-3','card');
             let cardFront = document.createElement('div'); 
-            cardFront.classList.add('card-front');
+            cardFront.classList.add('card-front')
             let cardBack = document.createElement('div');
-            cardBack.classList.add('card-back');
+            cardBack.classList.add('card-back')
             let defaultImage = document.createElement('img');
-            defaultImage.classList.add('img-fluid');
+            defaultImage.classList.add('img-fluid')
             defaultImage.setAttribute('src', 'assets/images/back-face.svg');
             let cardsImage = document.createElement('img');
-            cardsImage.classList.add('img-fluid');
+            cardsImage.classList.add('img-fluid')
             cardsImage.setAttribute('src', villagersCards[i].img);
-            cardsImage.setAttribute('alt', `Image of ${villagersCards[i].name}`);
+            cardsImage.setAttribute('alt', `Image of ${villagersCards[i].name}`)
             cardsImage.dataset.name = villagersCards[i].name;
             cardFront.appendChild(cardsImage);
             cardBack.append(defaultImage);
@@ -325,22 +325,22 @@ function gamePage() {
         // Duplicate cards so that we have 2 sets of 6 cards
         let fishCards = fishArray.concat(fishArray);
         // Randomise the cards everytime script is run
-        fishCards.sort(() => 0.5 - Math.random());
+        fishCards.sort(() => 0.5 - Math.random())
         for (let i = 0; i < fishCards.length; i++) {
             let cardsRow = document.getElementById('cardsRow');
             let card = document.createElement('div');
             card.classList.add('col-sm-4', 'col-md-3', 'col-lg-3','card');
             let cardFront = document.createElement('div'); 
-            cardFront.classList.add('card-front');
+            cardFront.classList.add('card-front')
             let cardBack = document.createElement('div');
-            cardBack.classList.add('card-back');
+            cardBack.classList.add('card-back')
             let defaultImage = document.createElement('img');
-            defaultImage.classList.add('img-fluid');
+            defaultImage.classList.add('img-fluid')
             defaultImage.setAttribute('src', 'assets/images/back-face.svg');
             let cardsImage = document.createElement('img');
-            cardsImage.classList.add('img-fluid');
+            cardsImage.classList.add('img-fluid')
             cardsImage.setAttribute('src', fishCards[i].img);
-            cardsImage.setAttribute('alt', `Image of ${fishCards[i].name}`);
+            cardsImage.setAttribute('alt', `Image of ${fishCards[i].name}`)
             cardsImage.dataset.name = fishCards[i].name;
             cardFront.appendChild(cardsImage);
             cardBack.append(defaultImage);
@@ -353,22 +353,22 @@ function gamePage() {
         // Duplicate cards so that we have 2 sets of 6 cards
         let insectsCards = insectsArray.concat(insectsArray);
         // Randomise the cards everytime script is run
-        insectsCards.sort(() => 0.5 - Math.random());
+        insectsCards.sort(() => 0.5 - Math.random())
         for (let i = 0; i < insectsCards.length; i++) {
             let cardsRow = document.getElementById('cardsRow');
             let card = document.createElement('div');
             card.classList.add('col-sm-4', 'col-md-3', 'col-lg-3','card');
             let cardFront = document.createElement('div'); 
-            cardFront.classList.add('card-front');
+            cardFront.classList.add('card-front')
             let cardBack = document.createElement('div');
-            cardBack.classList.add('card-back');
+            cardBack.classList.add('card-back')
             let defaultImage = document.createElement('img');
-            defaultImage.classList.add('img-fluid');
+            defaultImage.classList.add('img-fluid')
             defaultImage.setAttribute('src', 'assets/images/back-face.svg');
             let cardsImage = document.createElement('img');
-            cardsImage.classList.add('img-fluid');
+            cardsImage.classList.add('img-fluid')
             cardsImage.setAttribute('src', insectsCards[i].img);
-            cardsImage.setAttribute('alt', `Image of ${insectsCards[i].name}`);
+            cardsImage.setAttribute('alt', `Image of ${insectsCards[i].name}`)
             cardsImage.dataset.name = insectsCards[i].name;
             cardFront.appendChild(cardsImage);
             cardBack.append(defaultImage);
@@ -405,27 +405,27 @@ function gamePage() {
             // If count is 1 then add the selected card class and store the data value into guesss1
             if (count === 1) {
             flipSound.play();
-            guess1 = clickedElement.parentNode.nextSibling.lastChild.dataset.name;
+            guess1 = clickedElement.parentNode.nextSibling.lastChild.dataset.name
             clickedElement.classList.add('selected-card');
             } else if (count === 2) {
                 // Now count is 2 so add the selected card class and store the data value into guesss2
                 flipSound.play();
-                guess2 = clickedElement.parentNode.nextSibling.lastChild.dataset.name;
+                guess2 = clickedElement.parentNode.nextSibling.lastChild.dataset.name
                 clickedElement.classList.add('selected-card');
                 // Check that the variables are not empty
             if (guess1 !== '' && guess2 !== '') {
                 // Check that the data values match
                 if (guess1 === guess2) {
                     // Call the match cards function
-                    setTimeout(matchCards, matchTimeout);
-                    setTimeout(resetCards, matchTimeout);
+                    setTimeout(matchCards, matchTimeout)
+                    setTimeout(resetCards, matchTimeout)
                 } else {
-                    setTimeout(resetCards, timeout);
+                    setTimeout(resetCards, timeout)
                 }
             }
             } 
         } 
-    });
+    })
     function matchCards() {
         // Get all selected cards 
         let selectedCards = document.querySelectorAll(".selected-card");
@@ -435,7 +435,7 @@ function gamePage() {
             // Get the selected cards and apply match class to them
             card.classList.add('match');
             // Select all matched cards and store them into matchedCards collection
-            let matchedCards = document.querySelectorAll('.match');
+            let matchedCards = document.querySelectorAll('.match')
             // Check if the length is 12 & if the timer is > 0
             if (matchedCards.length == 12 && timerStart[sec] != 0) {
                 // Stop the timer
@@ -466,7 +466,7 @@ function gamePage() {
                         <p class="small-print">Click/tap on button to restart, cancel the game or go home. Cancelling the game will erase your progress.</p>
                     </div>
                 </div>
-                `;
+                `
                 } else {
                     if (sessionStorage.getItem('volume') != 'mute') {
                         winSound.play();
@@ -489,14 +489,14 @@ function gamePage() {
                         <p class="small-print">Click/tap on button to proceed restart the game or to exit the game. Exiting the game will erase your progress.</p>
                     </div>
                 </div>
-                `;
+                `
                 }
                 if (sessionStorage.getItem('level') == 1) {
                     sessionStorage.setItem('level', 2);
                 } else if (sessionStorage.getItem('level') == 2) {
-                    sessionStorage.setItem('level', 3);
+                    sessionStorage.setItem('level', 3)
                 } else if (sessionStorage.getItem('level') == 3) {
-                    sessionStorage.setItem('level', 1);
+                    sessionStorage.setItem('level', 1)
                 }
             }
         }
