@@ -138,6 +138,8 @@ Background image has been sourced from [toptal.com](https://www.toptal.com/desig
 
 Sound files have been sourced from [soundbible.com](http://soundbible.com/) and are under copyright of their respective owners - licences vary.
 
+Favicon has been generated using [favicon-generator.org](https://www.favicon-generator.org/).
+
 All Animal Crossing (TM) images including images of the villagers, fish & insects has been sourced from [Critterpedia Plus](https://critterpedia-plus.mutoo.im/) and these are courtesy of Nintendo Company.
 
 Sketch 61 was used to create card SVG images.
