@@ -133,6 +133,7 @@ function savePlayer() {
         clearMainContent();
         rulesPage();
     } else if (savedPlayerName == playerName.value) {
+        setDifficulty();
         clearMainContent();
         gamePage();
     }
@@ -272,7 +273,8 @@ function gamePage() {
                         </div>
                         <i class="fas fa-sync-alt reset-game" id="resetGame" onclick="gamePage()"></i>
                         <a href="index.html"><i class="fas fa-times-circle cancel-game" id="exitGame" onclick="sessionStorage.clear()"></i></a>
-                        <p class="small-print">Click/tap on button to restart or cancel the game</p>
+                        <a href="index.html"><i class="fas fa-home go-home"></i></a>
+                        <p class="small-print">Click/tap on button to restart, cancel the game or go home. Cancelling the game will erase your progress.</p>
                     </div>
                 </div>
                 `
@@ -460,8 +462,9 @@ function gamePage() {
                             </p>
                         </div>
                         <i class="fas fa-chevron-circle-right" id="nextLevel" onclick="gamePage()"></i>
-                        <i class="fas fa-times-circle cancel-game" id="exitGame" onclick="window.location.href = 'index.html'"></i>
-                        <p class="small-print">Click/tap on button to proceed to next level or cancel the game</p>
+                        <a href="index.html"><i class="fas fa-times-circle cancel-game" id="exitGame" onclick="sessionStorage.clear()"></i></a>
+                        <a href="index.html"><i class="fas fa-home go-home"></i></a>
+                        <p class="small-print">Click/tap on button to restart, cancel the game or go home. Cancelling the game will erase your progress.</p>
                     </div>
                 </div>
                 `
@@ -484,7 +487,7 @@ function gamePage() {
                         </div>
                         <i class="fas fa-sync-alt reset-game" id="resetGame" onclick="gamePage()"></i>
                         <a href="index.html"><i class="fas fa-times-circle cancel-game" id="exitGame" onclick="sessionStorage.clear()"></i></a>
-                        <p class="small-print">Click/tap on button to proceed restart the game or to return to home page</p>
+                        <p class="small-print">Click/tap on button to proceed restart the game or to exit the game. Exiting the game will erase your progress.</p>
                     </div>
                 </div>
                 `

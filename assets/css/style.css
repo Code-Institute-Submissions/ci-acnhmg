@@ -125,13 +125,15 @@ padding-top: 10px;;
 }
 
 .cancel-game,
-.reset-game {
-  font-size: 4rem;
+.reset-game,
+.go-home {
+  font-size: 3.5rem;
   color: #532901;
   cursor: pointer; 
 }
 
-.cancel-game {
+.cancel-game,
+.go-home {
   padding-left: 20px;
 }
 
